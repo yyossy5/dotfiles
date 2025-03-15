@@ -1,5 +1,7 @@
 # dotfiles
 
+A collection of my personal dotfiles and configuration settings for development tools, designed for easy setup and consistent experience across different systems.
+
 ## How to add "dotfiles" to this repository
 
 Assuming this repository is cloned in your home directory like:
