@@ -13,6 +13,8 @@ return {
 
     telescope.setup({
       defaults = {
+        file_ignore_patterns = { "%.git/" }, -- exclude .git directory
+        find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" }, -- exclude .git directory
         path_display = { "smart" },
         mappings = {
           i = {
@@ -22,6 +24,16 @@ return {
           },
         },
       },
+      pickers = {
+        find_files = {
+          hidden = true
+        },
+        live_grep = {
+          additional_args = function(opts)
+            return { "--hidden" }
+          end
+        }
+      }
     })
 
     telescope.load_extension("fzf")
