@@ -31,7 +31,7 @@ return {
         "cmake",
         "docker_compose_language_service",
         "dockerls",
-        "eslint", -- javascript
+        "eslint", -- javascript/typescript
         "gopls",
         -- "groovyls",
         "harper_ls", -- toml
@@ -46,8 +46,7 @@ return {
         "rust_analyzer", -- python
         "sqls",
         "tflint", -- terraform
-        "tsserver",
-      },
+              },
     })
   end,
 }
