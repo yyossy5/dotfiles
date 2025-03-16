@@ -5,9 +5,9 @@ A collection of my personal dotfiles and configuration settings for development 
 ## How to add "dotfiles" to this repository
 
 Assuming this repository is cloned in your home directory like:
-```$HOME/dotfiles```
+`$HOME/dotfiles`
 
-Example of adding ```~/.config/nvim```:
+Example of adding `~/.config/nvim`:
 
 ```bash
 # Backup existing files (just in case)
@@ -19,3 +19,19 @@ ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ```
 
 Commit & push within the dotfiles directory.
+
+## How to setup "dotfiles" on a new system
+
+```bash
+
+```
+
+## memo
+
+### zsh
+
+```bash
+cp ~/.zshrc ~/.zshrc.bak
+rm ~/.zshrc
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+```
