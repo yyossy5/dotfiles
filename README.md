@@ -35,3 +35,11 @@ cp ~/.zshrc ~/.zshrc.bak
 rm ~/.zshrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
+
+### tmux
+
+```bash
+cp ~/.tmux.conf ~/.tmux.conf.bak
+rm ~/.tmux.conf
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+```
