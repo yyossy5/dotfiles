@@ -37,7 +37,6 @@ return {
         "eslint", -- javascript/typescript
         "gopls",
         -- "groovyls",
-        "harper_ls", -- toml
         "html",
         "jdtls", -- java
         "jinja_lsp",
@@ -46,10 +45,11 @@ return {
         "ltex", -- reStructuredText
         "nginx_language_server",
         "pyright", -- python
-        "rust_analyzer", -- python
+        "rust_analyzer",
         "sqls",
         "tflint", -- terraform
       },
+      automatic_installation = true, -- Automatically install missing servers
     })
 
     mason_tool_installer.setup({
