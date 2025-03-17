@@ -35,3 +35,14 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- exit terminal-job mode with <Esc> or jk
 keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true }) -- exit terminal-job mode with <Esc>
 vim.api.nvim_set_keymap("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    -- Remap <C-h> to act as backspace in terminal mode
+    vim.keymap.set("t", "<C-h>", "<BS>", { noremap = true, silent = true, buffer = true })
+
+    -- Remap <C-k> to delete everything after the cursor (kill-line behavior)
+    vim.keymap.set("t", "<C-k>", "<C-\\><C-n>i<C-k>", { noremap = true, silent = true, buffer = true })
+  end,
+})
