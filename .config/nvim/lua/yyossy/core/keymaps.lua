@@ -32,5 +32,6 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) 
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- terminal
--- exit terminal-job mode with <Esc>
+-- exit terminal-job mode with <Esc> or jk
+keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true }) -- exit terminal-job mode with <Esc>
 vim.api.nvim_set_keymap("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
