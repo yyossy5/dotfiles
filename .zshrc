@@ -142,9 +142,6 @@ export SAVEHIST=100000
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# asdf
-. "$HOME/.asdf/asdf.sh"
-
 # pyenv
 # https://github.com/pyenv/pyenv/blob/master/README.md#set-up-your-shell-environment-for-pyenv
 export PYENV_ROOT="$HOME/.pyenv"
