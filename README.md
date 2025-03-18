@@ -43,3 +43,34 @@ cp ~/.tmux.conf ~/.tmux.conf.bak
 rm ~/.tmux.conf
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ```
+
+### LazyGit Config
+
+requires:
+
+- lazygit
+
+```bash
+cp ~/Library/Application\ Support/lazygit/config.yml .
+mv ~/Library/Application\ Support/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.ymlconfig.yml.bk
+ln -s ~/dotfiles/lazygit/config.yml /Users/y_yoshida/Library/Application\ Support/lazygit/config.yml
+```
+
+optional:
+
+- delta
+
+install
+
+```bash
+brew install git-delta
+```
+
+.gitconfig setting
+
+```bash
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global merge.conflictStyle zdiff3
+```
