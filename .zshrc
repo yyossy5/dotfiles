@@ -108,9 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi="nvim"
-alias vim="nvim"
-alias view="nvim -R"
+#alias vi="nvim"
+#alias vim="nvim"
+#alias view="nvim -R"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
