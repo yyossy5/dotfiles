@@ -5,3 +5,6 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
+#os:
+#  # https://zenn.dev/rikson/articles/2024-05-26_rikson_lazygit-nvim-remote-integration
+#  editPreset: "nvim-remote"
