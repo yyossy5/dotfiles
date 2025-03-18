@@ -110,7 +110,7 @@ return {
           },
           inverse = { -- Inverse highlight for different types
             match_paren = false,
-            visual = false,
+            visual = true,
             search = false,
           },
           modules = { -- List of various plugins and additional options
