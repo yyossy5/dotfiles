@@ -4,7 +4,7 @@ A collection of my personal dotfiles and configuration settings for development 
 
 ## How to add "dotfiles" to this repository
 
-Assuming this repository is cloned in your home directory like:
+Assuming this repository is cloned in my home directory like:
 `$HOME/dotfiles`
 
 Example of adding `~/.config/nvim`:
