@@ -52,7 +52,7 @@ requires:
 
 ```bash
 cp ~/Library/Application\ Support/lazygit/config.yml .
-mv ~/Library/Application\ Support/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.ymlconfig.yml.bk
+mv ~/Library/Application\ Support/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml.bk
 ln -s ~/dotfiles/lazygit/config.yml /Users/y_yoshida/Library/Application\ Support/lazygit/config.yml
 ```
 
