@@ -5,7 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
-     "folke/todo-comments.nvim",
+    "folke/todo-comments.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -20,20 +20,24 @@ return {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            -- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-q>"] = actions.close, -- <C-q> to close Telescope
+          },
+          n = {
+            ["<C-q>"] = actions.close, -- <C-q> to close Telescope in normal mode
           },
         },
       },
       pickers = {
         find_files = {
-          hidden = true
+          hidden = true,
         },
         live_grep = {
           additional_args = function(opts)
             return { "--hidden" }
-          end
-        }
-      }
+          end,
+        },
+      },
     })
 
     telescope.load_extension("fzf")
