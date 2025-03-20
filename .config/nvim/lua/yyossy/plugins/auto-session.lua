@@ -2,17 +2,19 @@
 
 return {
   "rmagatti/auto-session",
-  config = function()
-    local auto_session = require("auto-session")
-
-    auto_session.setup({
-      auto_restore_enabled = false,
-      auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
-    })
-
-    local keymap = vim.keymap
-
-    keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
-    keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
-  end,
+  lazy = false, -- Load immediately when Neovim starts (no lazy loading)
+  opts = {
+    auto_save = true,
+    auto_restore = true,
+    cwd_change_handling = true, -- Enable session management when changing directories
+    post_restore_cmds = {
+      function()
+        require("nvim-tree.api").tree.open({ focus = false })
+      end,
+    },
+  },
+  keys = {
+    { "<leader>wr", "<cmd>SessionRestore<CR>", desc = "Restore session for cwd" }, -- restore last workspace session for current directory
+    { "<leader>ws", "<cmd>SessionSave<CR>", desc = "Save session for auto session root dir" }, -- save workspace session for current working directory
+  },
 }
