@@ -13,6 +13,13 @@ return {
         layout = "diff2_horizontal",
       },
     },
+    hooks = {
+      -- Expand all folds when entering diff mode by default
+      -- https://github.com/sindrets/diffview.nvim/issues/437
+      diff_buf_win_enter = function()
+        vim.opt_local.foldenable = false
+      end,
+    },
   },
   config = function(_, opts)
     require("diffview").setup(opts)
