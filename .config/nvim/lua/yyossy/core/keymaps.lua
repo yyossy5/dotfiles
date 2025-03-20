@@ -50,3 +50,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.keymap.set("t", "<C-k>", "<C-\\><C-n>i<C-k>", { noremap = true, silent = true, buffer = true })
   end,
 })
+
+-- Toggle command-line window with <leader>a
+keymap.set("n", "<leader>a", function()
+  -- Close the command-line window if it is open
+  if vim.fn.getcmdwintype() ~= "" then
+    vim.cmd("close")
+  else
+    -- Open the command-line window (command history)
+    vim.api.nvim_feedkeys("q:", "n", false)
+  end
+end, { desc = "Toggle Command-Line Window" })
