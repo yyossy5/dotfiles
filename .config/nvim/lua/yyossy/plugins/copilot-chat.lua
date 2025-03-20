@@ -1,3 +1,4 @@
+-- https://github.com/CopilotC-Nvim/CopilotChat.nvim
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -7,7 +8,11 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
-      show_help = "yes",
+      show_help = true,
+      window = {
+        width = 0.3,
+        border = "rounded",
+      },
       prompts = {
         Explain = {
           prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
