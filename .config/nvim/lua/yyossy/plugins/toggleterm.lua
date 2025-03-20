@@ -11,6 +11,6 @@ return {
     })
   end,
   keys = {
-    { "<leader>a", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" },
+    { "<leader>r", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" },
   },
 }
