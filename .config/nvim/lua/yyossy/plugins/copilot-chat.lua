@@ -10,7 +10,7 @@ return {
     opts = {
       show_help = true,
       window = {
-        width = 0.3,
+        width = 0.35,
         border = "rounded",
       },
       prompts = {
@@ -41,7 +41,7 @@ return {
         },
         Translate = {
           prompt = "/COPILOT_TRANSLATE 選択したコードのコメントを英語に翻訳してください。",
-          mapping = "<leader>cc",
+          mapping = "<leader>cx",
           description = "コードコメントの英語化をお願いする",
         },
         Tests = {
@@ -68,5 +68,8 @@ return {
         ]]
       },
     },
+
+    vim.api.nvim_set_keymap("n", "<leader>cc", ":CopilotChat<CR>", { noremap = true, silent = true }),
+    vim.api.nvim_set_keymap("n", "<leader>cq", ":CopilotChatClose<CR>", { noremap = true, silent = true }),
   },
 }
