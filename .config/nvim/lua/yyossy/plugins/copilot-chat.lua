@@ -34,6 +34,11 @@ return {
           mapping = "<leader>cd",
           description = "コードのドキュメント作成をお願いする",
         },
+        Translate = {
+          prompt = "/COPILOT_TRANSLATE 選択したコードのコメントを英語に翻訳してください。",
+          mapping = "<leader>cc",
+          description = "コードコメントの英語化をお願いする",
+        },
         Tests = {
           prompt = "/COPILOT_TESTS 選択したコードの詳細なユニットテストを書いてください。説明は日本語でお願いします。",
           mapping = "<leader>ct",
