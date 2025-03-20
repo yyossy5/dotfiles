@@ -33,7 +33,7 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 -- Map Ctrl+S to :w (save)
 vim.keymap.set("n", "<C-s>", "<Cmd>w<CR>", { desc = "Save file" })
--- vim.keymap.set("i", "<C-s>", "<Esc><Cmd>w<CR>a", { desc = "Save file" })
+vim.keymap.set("i", "<C-s>", "<Esc><Cmd>w<CR>a", { desc = "Save file" })
 
 -- terminal
 -- exit terminal-job mode with <Esc> or jk
