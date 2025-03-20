@@ -43,18 +43,28 @@ return {
         c = { bg = colors.bg, fg = colors.fg },
       },
       inactive = {
-        a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-        b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-        c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+        a = { bg = colors.inactive_bg, fg = colors.fg, gui = "bold" },
+        b = { bg = colors.inactive_bg, fg = colors.fg },
+        c = { bg = colors.inactive_bg, fg = colors.fg },
       },
     }
 
-    -- configure lualine with modified theme
+    -- Breadcrumbs function (Relative path from project root)
+    local function breadcrumbs()
+      local cwd = vim.fn.getcwd() -- Get current working directory
+      local file = vim.fn.expand("%:p") -- Get full file path
+      local relative_path = file:gsub("^" .. vim.pesc(cwd .. "/"), "")
+
+      return relative_path
+    end
+
+    -- Configure lualine with modified theme
     lualine.setup({
       options = {
         theme = my_lualine_theme,
       },
       sections = {
+        lualine_c = { breadcrumbs },
         lualine_x = {
           {
             lazy_status.updates,
