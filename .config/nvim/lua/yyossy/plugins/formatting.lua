@@ -20,6 +20,15 @@ return {
         lsp_fallback = true,
         async = false,
         timeout_ms = 1000,
+        -- Disable auto-formatting
+        filter = function(bufnr)
+          -- Ensure bufnr is a valid number
+          if type(bufnr) ~= "number" then
+            return false
+          end
+          local bufname = vim.api.nvim_buf_get_name(bufnr)
+          return not string.match(bufname, "%.java$")
+        end,
       },
     })
 
