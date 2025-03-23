@@ -74,3 +74,11 @@ git config --global interactive.diffFilter 'delta --color-only'
 git config --global delta.navigate true
 git config --global merge.conflictStyle zdiff3
 ```
+
+### Ruff
+
+https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ruff
+
+```bash
+uv tool install ruff@latest
+```
