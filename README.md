@@ -87,6 +87,8 @@ uv tool install ruff@latest
 
 #### Install JDK
 
+jdtls requires JDK.
+
 ```bash
 brew install openjdk@21
 
