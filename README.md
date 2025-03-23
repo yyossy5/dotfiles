@@ -82,3 +82,14 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ruff
 ```bash
 uv tool install ruff@latest
 ```
+
+### Java
+
+#### Install JDK
+
+```bash
+brew install openjdk@21
+
+sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+echo 'export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"' >> ~/.zshrc
+```
