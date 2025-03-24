@@ -142,6 +142,7 @@ export SAVEHIST=100000
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# -------------------- Python --------------------
 # pyenv
 # https://github.com/pyenv/pyenv/blob/master/README.md#set-up-your-shell-environment-for-pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -170,19 +171,20 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# Go
-export PATH=${PATH}:$(go env GOPATH)/bin
-
 # uv
 eval "$(uv generate-shell-completion zsh)"
 
+# -------------------- Go --------------------
+export PATH=${PATH}:$(go env GOPATH)/bin
+
+# -------------------- Google Cloud --------------------
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/y_yoshida/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/y_yoshida/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/y_yoshida/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/y_yoshida/google-cloud-sdk/completion.zsh.inc'; fi
 
-# ---------- Java ----------
+# -------------------- Java --------------------
 # export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v21)
 export PATH="$JAVA_HOME/bin:$PATH"
