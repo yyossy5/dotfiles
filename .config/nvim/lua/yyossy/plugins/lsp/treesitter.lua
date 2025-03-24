@@ -52,6 +52,7 @@ return {
         "query",
         "rust",
         "sql",
+        "terraform",
         "typescript",
         "tsx",
         "vim",

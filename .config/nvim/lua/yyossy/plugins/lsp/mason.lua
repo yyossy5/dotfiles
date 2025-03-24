@@ -47,7 +47,8 @@ return {
         "pyright", -- python
         "rust_analyzer",
         "sqls",
-        "tflint", -- terraform
+        "terraformls", -- terraform lsp
+        "tflint", -- terraform linter
       },
       automatic_installation = true, -- Automatically install missing servers
     })
