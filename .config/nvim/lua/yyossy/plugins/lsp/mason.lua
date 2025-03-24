@@ -42,7 +42,7 @@ return {
         "jinja_lsp",
         "jsonls",
         "lua_ls",
-        "ltex", -- reStructuredText
+        -- "ltex", -- reStructuredText
         "nginx_language_server",
         "pyright", -- python
         "rust_analyzer",
@@ -55,9 +55,10 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
+        "eslint_d", -- js linter
+        "markdownlint",
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "eslint_d", -- js linter
       },
     })
   end,

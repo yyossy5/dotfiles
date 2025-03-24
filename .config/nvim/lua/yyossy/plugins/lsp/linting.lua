@@ -6,8 +6,9 @@ return {
 
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
-      typescript = { "eslint_d" },
+      markdown = { "markdownlint" },
       python = { "ruff" },
+      typescript = { "eslint_d" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
