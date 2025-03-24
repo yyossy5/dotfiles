@@ -51,7 +51,7 @@ requires:
 - lazygit
 
 ```bash
-cp ~/Library/Application\ Support/lazygit/config.yml .
+cp ~/Library/Application\ Support/lazygit/config.yml ~/dotfiles/
 mv ~/Library/Application\ Support/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml.bk
 ln -s ~/dotfiles/lazygit/config.yml /Users/y_yoshida/Library/Application\ Support/lazygit/config.yml
 ```
