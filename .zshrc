@@ -182,5 +182,12 @@ if [ -f '/Users/y_yoshida/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/y_yos
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/y_yoshida/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/y_yoshida/google-cloud-sdk/completion.zsh.inc'; fi
 
-# OpenJDK
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+# ---------- Java ----------
+# export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v21)
+export PATH="$JAVA_HOME/bin:$PATH"
+
+alias use_java14='export JAVA_HOME=$(/usr/libexec/java_home -v14); export PATH="$JAVA_HOME/bin:$PATH"'
+alias use_java21='export JAVA_HOME=$(/usr/libexec/java_home -v21); export PATH="$JAVA_HOME/bin:$PATH"'
+
+
