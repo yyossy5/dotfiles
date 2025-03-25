@@ -11,6 +11,7 @@ return {
       desc = "Open Diffview with origin/develop and HEAD",
     },
     { "<leader>lm", "<cmd>DiffviewOpen origin/main...HEAD<CR>", desc = "Open Diffview with origin/main and HEAD" },
+    { "<leader>ln", "<cmd>DiffviewOpen origin/master...HEAD<CR>", desc = "Open Diffview with origin/master and HEAD" },
     { "<leader>lh", "<cmd>DiffviewFileHistory<CR>", desc = "Open DiffviewFileHistory" },
   },
   opts = {
