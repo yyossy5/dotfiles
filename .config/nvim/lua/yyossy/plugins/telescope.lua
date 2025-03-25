@@ -42,12 +42,26 @@ return {
 
     telescope.load_extension("fzf")
 
+    -- Define last search term storage
+    local last_search_term = ""
+
+    -- Custom function: prompt input with last used string
+    local function live_grep_with_input()
+      local input = vim.fn.input("Grep > ", last_search_term)
+      if input == "" then
+        return
+      end
+      last_search_term = input
+      require("telescope.builtin").live_grep({ default_text = input })
+    end
+
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
 
     keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+    -- keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+    keymap.set("n", "<leader>fs", live_grep_with_input, { desc = "Find string in cwd (persistent input)" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     keymap.set(
