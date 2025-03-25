@@ -28,6 +28,13 @@ Commit & push within the dotfiles directory.
 
 ## memo
 
+### general
+
+```bash
+brew install font-meslo-lg-nerd-font
+brew install ripgrep
+```
+
 ### zsh
 
 ```bash
@@ -95,3 +102,9 @@ brew install openjdk@21
 sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
 echo 'export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"' >> ~/.zshrc
 ```
+
+## Tools that are not managed by dotfiles
+
+### Raycast
+
+Raycast pro plan can manage the settings via cloud sync.
