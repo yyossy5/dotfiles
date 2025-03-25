@@ -21,6 +21,7 @@ return {
         -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#autoformat-with-extra-features
         local ignore_filetypes = {
           "java",
+          "yaml",
         }
         if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
           return
