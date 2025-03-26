@@ -10,8 +10,24 @@
 registries:
 - type: standard
   ref: v4.332.0 # renovate: depName=aquaproj/aqua-registry
+
 packages:
+# terraform
 - name: hashicorp/terraform@v1.11.2
 - name: gruntwork-io/terragrunt@v0.76.8
 - name: terraform-linters/tflint@v0.55.1
 - name: aquasecurity/tfsec@v1.28.13
+
+# git
+- name: jesseduffield/lazygit@v0.48.0
+
+# java
+- name: apache/maven@maven-3.9.9
+
+# nodejs
+- name: nodejs/node@v23.10.0
+
+# utilities
+- name: junegunn/fzf@v0.60.3
+- name: jqlang/jq@jq-1.7.1
+- name: BurntSushi/ripgrep@14.1.1
