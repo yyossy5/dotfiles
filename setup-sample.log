@@ -1,0 +1,106 @@
+[2025-03-27 00:49:01] Setting up zsh...
+[2025-03-27 00:49:01] Removing existing symlink /Users/y_yoshida/.zshrc
+[2025-03-27 00:49:01] Linked /Users/y_yoshida/dotfiles/zsh/.zshrc → /Users/y_yoshida/.zshrc
+[2025-03-27 00:49:01] Setup completed.
+[2025-03-27 00:49:01] Setting up Neovim...
+[2025-03-27 00:49:01] Removing existing symlink /Users/y_yoshida/.config/nvim
+[2025-03-27 00:49:01] Linked /Users/y_yoshida/dotfiles/nvim → /Users/y_yoshida/.config/nvim
+[2025-03-27 00:49:01] Setup completed.
+[2025-03-27 00:49:01] Setting up tmux...
+[2025-03-27 00:49:01] Removing existing symlink /Users/y_yoshida/.tmux.conf
+[2025-03-27 00:49:01] Linked /Users/y_yoshida/dotfiles/tmux/.tmux.conf → /Users/y_yoshida/.tmux.conf
+[2025-03-27 00:49:01] Setup completed.
+[2025-03-27 00:49:01] Setting up lazygit config...
+[2025-03-27 00:49:01] Removing existing symlink /Users/y_yoshida/Library/Application Support/lazygit/config.yml
+[2025-03-27 00:49:01] Linked /Users/y_yoshida/dotfiles/lazygit/config.yml → /Users/y_yoshida/Library/Application Support/lazygit/config.yml
+[2025-03-27 00:49:01] Setup completed.
+[2025-03-27 00:49:01] Installing Homebrew packages (without upgrading existing ones)...
+[2025-03-27 00:49:02] aqua already installed, skipping
+[2025-03-27 00:49:03] cmake already installed, skipping
+[2025-03-27 00:49:04] curl already installed, skipping
+[2025-03-27 00:49:06] font-hack-nerd-font already installed, skipping
+[2025-03-27 00:49:07] Installing gcc via Homebrew
+[2025-03-27 00:49:32] Symlink already exists: /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+[2025-03-27 00:49:32] Setup completed.
+[2025-03-27 00:49:32] Installing tools via aqua (global config)...
+[2025-03-27 00:49:32] Setup completed.
+[2025-03-27 00:49:32] Setting git global config for delta...
+[2025-03-27 00:49:32] Setup completed.
+[2025-03-27 00:55:05] Setting up zsh...
+[2025-03-27 00:55:05] Removing existing symlink /Users/y_yoshida/.zshrc
+[2025-03-27 00:55:05] Linked /Users/y_yoshida/dotfiles/zsh/.zshrc → /Users/y_yoshida/.zshrc
+[2025-03-27 00:55:05] Setup completed.
+[2025-03-27 00:55:05] Setting up Neovim...
+[2025-03-27 00:55:05] Removing existing symlink /Users/y_yoshida/.config/nvim
+[2025-03-27 00:55:06] Linked /Users/y_yoshida/dotfiles/nvim → /Users/y_yoshida/.config/nvim
+[2025-03-27 00:55:06] Setup completed.
+[2025-03-27 00:55:06] Setting up tmux...
+[2025-03-27 00:55:06] Removing existing symlink /Users/y_yoshida/.tmux.conf
+[2025-03-27 00:55:06] Linked /Users/y_yoshida/dotfiles/tmux/.tmux.conf → /Users/y_yoshida/.tmux.conf
+[2025-03-27 00:55:06] Setup completed.
+[2025-03-27 00:55:06] Setting up lazygit config...
+[2025-03-27 00:55:06] Removing existing symlink /Users/y_yoshida/Library/Application Support/lazygit/config.yml
+[2025-03-27 00:55:06] Linked /Users/y_yoshida/dotfiles/lazygit/config.yml → /Users/y_yoshida/Library/Application Support/lazygit/config.yml
+[2025-03-27 00:55:06] Setup completed.
+[2025-03-27 00:55:06] Installing Homebrew packages (without upgrading existing ones)...
+[2025-03-27 00:55:07] aqua already installed, skipping
+[2025-03-27 00:55:08] cmake already installed, skipping
+[2025-03-27 00:55:09] curl already installed, skipping
+[2025-03-27 00:55:10] font-hack-nerd-font already installed, skipping
+[2025-03-27 00:55:11] gcc already installed, skipping
+[2025-03-27 00:55:12] git already installed, skipping
+[2025-03-27 00:55:13] git-delta already installed, skipping
+[2025-03-27 00:55:14] lua already installed, skipping
+[2025-03-27 00:55:15] neovim already installed, skipping
+[2025-03-27 00:55:16] openjdk@21 already installed, skipping
+[2025-03-27 00:55:17] tmux already installed, skipping
+[2025-03-27 00:55:18] tree already installed, skipping
+[2025-03-27 00:55:18] Symlink already exists: /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+[2025-03-27 00:55:18] Setup completed.
+[2025-03-27 00:55:18] Installing tools via aqua (global config)...
+[2025-03-27 00:55:18] Setup completed.
+[2025-03-27 00:55:18] Setting git global config for delta...
+[2025-03-27 00:55:18] Setup completed.
+[2025-03-27 00:55:40] Setting up zsh...
+[2025-03-27 00:55:40] Removing existing symlink /Users/y_yoshida/.zshrc
+[2025-03-27 00:55:41] Linked /Users/y_yoshida/dotfiles/zsh/.zshrc → /Users/y_yoshida/.zshrc
+[2025-03-27 00:55:41] Setup completed.
+[2025-03-27 00:55:41] Setting up Neovim...
+[2025-03-27 00:55:41] Removing existing symlink /Users/y_yoshida/.config/nvim
+[2025-03-27 00:55:41] Linked /Users/y_yoshida/dotfiles/nvim → /Users/y_yoshida/.config/nvim
+[2025-03-27 00:55:41] Setup completed.
+[2025-03-27 00:55:41] Setting up tmux...
+[2025-03-27 00:55:41] Removing existing symlink /Users/y_yoshida/.tmux.conf
+[2025-03-27 00:55:41] Linked /Users/y_yoshida/dotfiles/tmux/.tmux.conf → /Users/y_yoshida/.tmux.conf
+[2025-03-27 00:55:41] Setup completed.
+[2025-03-27 00:55:41] Setting up lazygit config...
+[2025-03-27 00:55:41] Removing existing symlink /Users/y_yoshida/Library/Application Support/lazygit/config.yml
+[2025-03-27 00:55:41] Linked /Users/y_yoshida/dotfiles/lazygit/config.yml → /Users/y_yoshida/Library/Application Support/lazygit/config.yml
+[2025-03-27 00:55:41] Setup completed.
+[2025-03-27 00:55:41] Installing Homebrew packages (without upgrading existing ones)...
+[2025-03-27 00:55:42] aqua already installed, skipping
+[2025-03-27 00:55:43] cmake already installed, skipping
+[2025-03-27 00:55:44] curl already installed, skipping
+[2025-03-27 00:55:45] font-hack-nerd-font already installed, skipping
+[2025-03-27 00:55:46] gcc already installed, skipping
+[2025-03-27 00:55:47] git already installed, skipping
+[2025-03-27 00:55:48] git-delta already installed, skipping
+[2025-03-27 00:55:49] lua already installed, skipping
+[2025-03-27 00:55:50] neovim already installed, skipping
+[2025-03-27 00:55:51] openjdk@21 already installed, skipping
+[2025-03-27 00:55:52] tmux already installed, skipping
+[2025-03-27 00:55:53] Installing tree via Homebrew
+==> Downloading https://ghcr.io/v2/homebrew/core/tree/manifests/2.2.1
+==> Fetching tree
+==> Downloading https://ghcr.io/v2/homebrew/core/tree/blobs/sha256:ccfac896234e1c63841b421873387c407f375af7e6db54abea549d24e3c69589
+==> Pouring tree--2.2.1.arm64_sequoia.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/tree/2.2.1: 9 files, 187.7KB
+==> Running `brew cleanup tree`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+[2025-03-27 00:55:56] Symlink already exists: /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+[2025-03-27 00:55:56] Setup completed.
+[2025-03-27 00:55:56] Installing tools via aqua (global config)...
+[2025-03-27 00:55:57] Setup completed.
+[2025-03-27 00:55:57] Setting git global config for delta...
+[2025-03-27 00:55:57] Setup completed.
