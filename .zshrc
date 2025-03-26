@@ -151,21 +151,21 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Created by `pipx` on 2023-12-22 16:34:10
-export PATH="$PATH:/Users/y_yoshida/.local/bin"
+export PATH="$PATH:~/.local/bin"
 # START: Added by Updated Airflow Breeze autocomplete setup
-source /Users/y_yoshida/Projects/airflow/dev/breeze/autocomplete/breeze-complete-zsh.sh
+source ~/Projects/airflow/dev/breeze/autocomplete/breeze-complete-zsh.sh
 # END: Added by Updated Airflow Breeze autocomplete setup
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/y_yoshida/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('~/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/y_yoshida/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/y_yoshida/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "~/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "~/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/y_yoshida/anaconda3/bin:$PATH"
+        export PATH="~/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -179,10 +179,10 @@ export PATH=${PATH}:$(go env GOPATH)/bin
 
 # -------------------- Google Cloud --------------------
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/y_yoshida/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/y_yoshida/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/y_yoshida/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/y_yoshida/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
 
 # -------------------- Java --------------------
 # export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
