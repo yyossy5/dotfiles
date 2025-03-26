@@ -2,109 +2,99 @@
 
 A collection of my personal dotfiles and configuration settings for development tools, designed for easy setup and consistent experience across different systems.
 
-## How to add "dotfiles" to this repository
+## How to setup `dotfiles` on a new system
 
-Assuming this repository is cloned in my home directory like:
-`$HOME/dotfiles`
+### Prerequisites
 
-Example of adding `~/.config/nvim`:
+- macOS
+- Homebrew is installed
+- [`aqua`](https://aquaproj.github.io/) (installed via Homebrew)
+- Your `.zshrc` will be installed and configured to point to your global `aqua.yaml` (e.g., via `AQUA_GLOBAL_CONFIG`)
 
-```bash
-# Backup existing files (just in case)
-mkdir -p ~/dotfiles_backup/.config/
-mv ~/.config/nvim/ ~/dotfiles_backup/.config/
+> 🛠️ Note: `aqua` and your `.zshrc` can be set up automatically by this setup process.
 
-# Create symbolic link
-ln -s ~/dotfiles/.config/nvim ~/.config/nvim
-```
+### Usage
 
-Commit & push within the dotfiles directory.
-
-## How to setup "dotfiles" on a new system
+#### Clone the repository to your home directory
 
 ```bash
-
+cd
+git clone git@github.com:teihenn/dotfiles.git
+cd dotfiles
 ```
 
-## memo
+#### Run setup
 
-### general
+##### Full setup
 
 ```bash
-brew install font-meslo-lg-nerd-font
-brew install ripgrep
+make
 ```
 
-### zsh
+##### Partial setup
+
+e.g., Setup `.zshrc` only
 
 ```bash
-cp ~/.zshrc ~/.zshrc.bak
-rm ~/.zshrc
-ln -s ~/dotfiles/.zshrc ~/.zshrc
+make zsh
 ```
 
-### tmux
+#### Show avaliable make commands
 
 ```bash
-cp ~/.tmux.conf ~/.tmux.conf.bak
-rm ~/.tmux.conf
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+make help
 ```
 
-### LazyGit Config
+## How to add `dotfiles` to this repository
 
-requires:
+You can add new dotfiles to this repository by following these steps:
 
-- lazygit
+1. Copy or move the config file into the appropriate directory
+   For example, to add your `~/.gitconfig`:
 
 ```bash
-cp ~/Library/Application\ Support/lazygit/config.yml ~/dotfiles/
-mv ~/Library/Application\ Support/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml.bk
-ln -s ~/dotfiles/lazygit/config.yml /Users/y_yoshida/Library/Application\ Support/lazygit/config.yml
+mkdir -p ~/dotfiles/git
+cp ~/.gitconfig ~/dotfiles/git/.gitconfig
 ```
 
-optional:
+2. Update `setup.sh` to create a symbolic link
 
-- delta
-
-install
+Edit `setup.sh` and add a new `install_gitconfig()` function if it doesn't already exist:
 
 ```bash
-brew install git-delta
+install_gitconfig() {
+    log "Setting up gitconfig..."
+    backup_and_link "$HOME/.gitconfig" "$DOTFILES_DIR/git/.gitconfig"
+}
 ```
 
-.gitconfig setting
+Also, update the `main()` function to support this target:
 
 ```bash
-git config --global core.pager delta
-git config --global interactive.diffFilter 'delta --color-only'
-git config --global delta.navigate true
-git config --global merge.conflictStyle zdiff3
+gitconfig) install_gitconfig ;;
 ```
 
-### Ruff
-
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ruff
+3. Add a Makefile target
 
 ```bash
-uv tool install ruff@latest
+gitconfig: ## Install .gitconfig
+ ./setup.sh gitconfig
 ```
 
-### Java
-
-#### Install JDK
-
-jdtls requires JDK.
+4. Test it
 
 ```bash
-brew install openjdk@21
-
-sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
-echo 'export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"' >> ~/.zshrc
+make gitconfig
 ```
+
+Check that the symlink is created and the config works as expected.
 
 ## Tools that are not managed by dotfiles
 
 ### Raycast
 
 Raycast pro plan can manage the settings via cloud sync.
+
+## Reference
+
+- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ruff
