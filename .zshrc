@@ -192,4 +192,10 @@ export PATH="$JAVA_HOME/bin:$PATH"
 alias use_java14='export JAVA_HOME=$(/usr/libexec/java_home -v14); export PATH="$JAVA_HOME/bin:$PATH"'
 alias use_java21='export JAVA_HOME=$(/usr/libexec/java_home -v21); export PATH="$JAVA_HOME/bin:$PATH"'
 
-
+# -------------------- aqua --------------------
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+if command -v aqua &> /dev/null; then
+    source <(aqua completion zsh)
+fi
+# https://aquaproj.github.io/docs/tutorial/global-config/
+export AQUA_GLOBAL_CONFIG=~/dotfiles/aqua/aqua.yaml
