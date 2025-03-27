@@ -1,6 +1,6 @@
-.PHONY: all help zsh nvim tmux lazygit brew aqua gitconfig
+.PHONY: all help zsh nvim tmux lazygit brew aqua gitconfig iterm2
 
-all: zsh nvim tmux lazygit brew aqua gitconfig ## Run all setup tasks
+all: zsh nvim tmux lazygit brew aqua gitconfig iterm2 ## Run all setup tasks
 
 zsh: ## Install .zshrc
 	./setup.sh zsh
@@ -22,6 +22,9 @@ aqua: zsh ## Install CLI tools via aqua (requires .zshrc)
 
 gitconfig: ## Configure git
 	./setup.sh gitconfig
+
+iterm2: ## Install iTerm2 config
+	./setup.sh iterm2
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-18s\033[0m %s\n", $$1, $$2}'
