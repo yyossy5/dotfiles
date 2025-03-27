@@ -101,9 +101,17 @@ install_aqua() {
     aqua i -a
 }
 
+install_iterm2() {
+    local target="$HOME/Documents/ConfigFiles/iTerm2"
+    local source="$DOTFILES_DIR/iterm2/config"
+    log "Setting up iTerm2 config..."
+    mkdir -p "$(dirname "$target")"
+    backup_and_link "$target" "$source"
+}
+
 main() {
     if [ $# -eq 0 ]; then
-        echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig]"
+        echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2]"
         exit 1
     fi
 
@@ -118,6 +126,7 @@ main() {
                 install_openjdk_symlink 
                 install_aqua
                 install_gitconfig
+                install_iterm2
                 ;;
             zsh) install_zsh ;;
             nvim) install_nvim ;;
@@ -129,6 +138,7 @@ main() {
               ;;
             aqua) install_aqua ;;
             gitconfig) install_gitconfig ;;
+            iterm2) install_iterm2 ;;
             *)
                 echo "Unknown option: $arg"
                 exit 1
