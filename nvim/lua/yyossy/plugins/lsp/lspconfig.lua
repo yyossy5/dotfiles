@@ -102,6 +102,16 @@ return {
           },
         })
       end,
+      ["pyright"] = function()
+        lspconfig["pyright"].setup({
+          capabilities = capabilities,
+          -- set root_dir explicitly to resolve absolute imports
+          -- by detecting project root from .git directory
+          -- NOTE: Alternatively, placing pyproject.toml at the root also resolves
+          -- the issue of Pyright not correctly recognizing the project root, causing absolute imports to fail.
+          root_dir = lspconfig.util.root_pattern(".git"),
+        })
+      end,
     })
   end,
 }
