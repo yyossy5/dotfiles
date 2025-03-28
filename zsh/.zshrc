@@ -108,11 +108,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#alias vi="nvim"
-#alias vim="nvim"
-#alias view="nvim -R"
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
 alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
@@ -209,4 +204,8 @@ export AQUA_GLOBAL_CONFIG=~/dotfiles/aqua/aqua.yaml
 alias ahelp='alias | fzf'      # Interactive search for aliases
 alias fhelp='declare -f | fzf' # Interactive search for shell functions
 alias chelp='compgen -c | fzf' # Interactive search for all available commands (bash-compatible)
+
+# --------------------- general settings --------------------
+export VISUAL=nvim
+export EDITOR=nvim
 
