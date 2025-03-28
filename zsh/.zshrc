@@ -210,12 +210,15 @@ export VISUAL=nvim
 export EDITOR=nvim
 
 # --------------------- git --------------------
+alias ga='git add'
+
 alias gb='git branch'
 alias gbd='git branch --delete'
 
-alias gcb='git checkout -b'
-alias gcd='git checkout $(git_develop_branch)'
-alias gcm='git checkout $(git_main_branch)'
+alias gckb='git checkout -b'
+alias gck-='git checkout -'
+alias gckd='git checkout $(git_develop_branch)'
+alias gckm='git checkout $(git_main_branch)'
 
 alias gcmsg='git commit --message'
 alias gc='git commit --verbose'
@@ -228,7 +231,7 @@ alias gdsc='git diff --staged | cat'
 alias glo='git log --oneline --decorate'
 alias glog='git log --oneline --decorate --graph'
 
-alias gl='git pull'
+alias gpl='git pull'
 
 alias ggpush='git push origin "$(git_current_branch)"'
 alias gpf='git push --force-with-lease'
