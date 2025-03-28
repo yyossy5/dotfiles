@@ -99,6 +99,15 @@ make gitconfig
 
 Check that the symlink is created and the config works as expected.
 
+## Configs in this repo but not installed by the setup script
+
+The following configuration files are included in this repository
+but are not managed by the setup script,
+as they are not the kind that can simply be placed
+somewhere on the local machine to be automatically loaded.
+
+- bettertouchtool
+
 ## Tools that are not managed by dotfiles
 
 ### Raycast
