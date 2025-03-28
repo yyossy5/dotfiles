@@ -113,6 +113,11 @@ source $ZSH/oh-my-zsh.sh
 #alias view="nvim -R"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vi="nvim"
+alias vim="nvim"
+alias view="nvim -R"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 ### my original config ###
 PROMPT='%F{green}%D%f %F{green}%T%f %F{green}%~%f %F{blue}$%f '
