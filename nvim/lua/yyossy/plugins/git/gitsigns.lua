@@ -1,5 +1,3 @@
--- Gitsigns is a great plugin for interacting with git hunks in Neovim.
-
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
