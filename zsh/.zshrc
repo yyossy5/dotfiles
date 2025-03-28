@@ -199,3 +199,9 @@ if command -v aqua &> /dev/null; then
 fi
 # https://aquaproj.github.io/docs/tutorial/global-config/
 export AQUA_GLOBAL_CONFIG=~/dotfiles/aqua/aqua.yaml
+
+# -------------------- fzf --------------------
+alias ahelp='alias | fzf'      # Interactive search for aliases
+alias fhelp='declare -f | fzf' # Interactive search for shell functions
+alias chelp='compgen -c | fzf' # Interactive search for all available commands (bash-compatible)
+
