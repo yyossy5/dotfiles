@@ -10,8 +10,23 @@ return {
       "<cmd>DiffviewOpen origin/develop...HEAD<CR>",
       desc = "Open Diffview with origin/develop and HEAD",
     },
+    {
+      "<leader>lv",
+      "<cmd>DiffviewOpen origin/develop --<CR>",
+      desc = "Open Diffview with origin/develop and Working Directory",
+    },
     { "<leader>lm", "<cmd>DiffviewOpen origin/main...HEAD<CR>", desc = "Open Diffview with origin/main and HEAD" },
     { "<leader>ln", "<cmd>DiffviewOpen origin/master...HEAD<CR>", desc = "Open Diffview with origin/master and HEAD" },
+    {
+      "<leader>la",
+      "<cmd>DiffviewOpen origin/main --<CR>",
+      desc = "Open Diffview with origin/main and Working Directory",
+    },
+    {
+      "<leader>ls",
+      "<cmd>DiffviewOpen origin/master --<CR>",
+      desc = "Open Diffview with origin/master and Working Directory",
+    },
     { "<leader>lh", "<cmd>DiffviewFileHistory<CR>", desc = "Open DiffviewFileHistory" },
   },
   opts = {
