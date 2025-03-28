@@ -209,3 +209,37 @@ alias chelp='compgen -c | fzf' # Interactive search for all available commands (
 export VISUAL=nvim
 export EDITOR=nvim
 
+# --------------------- git --------------------
+alias gb='git branch'
+alias gbd='git branch --delete'
+
+alias gcb='git checkout -b'
+alias gcd='git checkout $(git_develop_branch)'
+alias gcm='git checkout $(git_main_branch)'
+
+alias gcmsg='git commit --message'
+alias gc='git commit --verbose'
+alias gc!='git commit --verbose --amend'
+
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gdsc='git diff --staged | cat'
+
+alias glo='git log --oneline --decorate'
+alias glog='git log --oneline --decorate --graph'
+
+alias gl='git pull'
+
+alias ggpush='git push origin "$(git_current_branch)"'
+alias gpf='git push --force-with-lease'
+
+# alias grbd='git rebase $(git_develop_branch)'
+alias grbi='git rebase --interactive'
+
+alias grhs='git reset --soft'
+
+alias gsh='git show'
+
+alias gstp='git stash pop'
+
+alias gst='git status'
