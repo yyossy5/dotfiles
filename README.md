@@ -4,6 +4,9 @@ A collection of my personal dotfiles and configuration settings for development 
 
 ## NeoVim Screenshot
 
+- 2025-03-29
+- Nightfox theme
+
 ![NeoVim Screenshot](20250329-neovim-nightfox.png)
 
 ## How to setup `dotfiles` on a new system
