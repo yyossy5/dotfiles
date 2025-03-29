@@ -2,6 +2,10 @@
 
 A collection of my personal dotfiles and configuration settings for development tools, designed for easy setup and consistent experience across different systems.
 
+## NeoVim Screenshot
+
+![NeoVim Screenshot](20250329-neovim-nightfox.png)
+
 ## How to setup `dotfiles` on a new system
 
 ### Prerequisites
