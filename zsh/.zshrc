@@ -185,6 +185,10 @@ fi
 # https://aquaproj.github.io/docs/tutorial/global-config/
 export AQUA_GLOBAL_CONFIG="$HOME/dotfiles/aqua/aqua.yaml"
 
+# https://aquaproj.github.io/docs/guides/uninstall-packages/
+# Always remove the package from bin directory when uninstalling
+export AQUA_REMOVE_MODE=pl
+
 # -------------------- fzf --------------------
 alias ahelp='alias | fzf'      # Interactive search for aliases
 alias fhelp='declare -f | fzf' # Interactive search for shell functions
