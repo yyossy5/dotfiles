@@ -5,8 +5,9 @@ local opt = vim.opt -- for conciseness
 -- tips: you can use "h" command to know more about options like ":h autoindent"
 
 -- line numbers
-opt.relativenumber = false -- show relative line numbers
+opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+-- opt.statuscolumn = [[%!v:lnum . '│' . (v:lnum == line('.') ? '0' : abs(v:lnum - line('.')))]]
 
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
