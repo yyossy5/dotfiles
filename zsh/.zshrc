@@ -111,8 +111,8 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zshconfig="nvim $HOME/.zshrc"
+alias ohmyzsh="nvim $HOME/.oh-my-zsh"
 
 ### my original config ###
 PROMPT='%F{green}%D%f %F{green}%T%f %F{green}%~%f %F{blue}$%f '
@@ -131,12 +131,12 @@ setopt hist_ignore_dups
 setopt share_history
 setopt inc_append_history
 
-export HISTFILE=~/.zsh_history
+export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=100000
 export SAVEHIST=100000
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
 # -------------------- homebrew --------------------
 export PATH="/opt/homebrew/bin:$PATH"
@@ -151,9 +151,9 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Created by `pipx` on 2023-12-22 16:34:10
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 # START: Added by Updated Airflow Breeze autocomplete setup
-source ~/Projects/airflow/dev/breeze/autocomplete/breeze-complete-zsh.sh
+source "$HOME/Projects/airflow/dev/breeze/autocomplete/breeze-complete-zsh.sh"
 # END: Added by Updated Airflow Breeze autocomplete setup
 
 # uv
@@ -164,10 +164,10 @@ export PATH=${PATH}:$(go env GOPATH)/bin
 
 # -------------------- Google Cloud --------------------
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 # -------------------- Java --------------------
 # export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
@@ -183,7 +183,7 @@ if command -v aqua &> /dev/null; then
     source <(aqua completion zsh)
 fi
 # https://aquaproj.github.io/docs/tutorial/global-config/
-export AQUA_GLOBAL_CONFIG=~/dotfiles/aqua/aqua.yaml
+export AQUA_GLOBAL_CONFIG="$HOME/dotfiles/aqua/aqua.yaml"
 
 # -------------------- fzf --------------------
 alias ahelp='alias | fzf'      # Interactive search for aliases
