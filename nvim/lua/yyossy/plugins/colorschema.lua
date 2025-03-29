@@ -125,6 +125,11 @@ return {
 
       -- setup must be called before loading
       vim.cmd("colorscheme nightfox")
+
+      -- Set the highlight for the current line number (absolute line number)
+      vim.cmd([[
+        highlight CursorLineNr guifg=#00ffff guibg=NONE gui=NONE
+      ]])
     end,
   },
   {
