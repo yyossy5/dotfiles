@@ -22,6 +22,12 @@ return {
 
     local luasnip = require("luasnip")
 
+    -- load snippets from friendly-snippets.
+    -- https://github.com/rafamadriz/friendly-snippets/issues/528
+    -- https://github.com/rafamadriz/friendly-snippets/issues/350
+    -- this shold be done before loading friendly-snippets(require("luasnip.loaders.from_vscode").lazy_load())
+    luasnip.filetype_extend("python", { "pydoc" })
+
     local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
@@ -47,7 +53,7 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp"},
+        { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
