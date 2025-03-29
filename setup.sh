@@ -77,6 +77,7 @@ git
 git-delta
 lua
 neovim
+node
 openjdk@21
 tmux
 tree

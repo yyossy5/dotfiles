@@ -24,9 +24,6 @@ packages:
 # java
 - name: apache/maven@maven-3.9.9
 
-# nodejs
-- name: nodejs/node@v23.10.0
-
 # utilities
 - name: junegunn/fzf@v0.60.3
 - name: jqlang/jq@jq-1.7.1
