@@ -7,7 +7,7 @@ A collection of my personal dotfiles and configuration settings for development 
 - 2025-03-29
 - Nightfox theme
 
-![2025-03-29 NeoVim iTerm2 Screenshot](20250329-neovim-iterm2-nightfox.png)
+![2025-03-29 NeoVim iTerm2 Screenshot](./screenshots/20250329-neovim-iterm2-nightfox.png)
 
 ## How to setup `dotfiles` on a new system
 
@@ -131,4 +131,4 @@ Raycast pro plan can manage the settings via cloud sync.
 
 - everforest theme
 
-![20250-03-28 NeoVim iTerm2 Screenshot](20250328-neovim-iterm2-everforest.png)
+![20250-03-28 NeoVim iTerm2 Screenshot](./screenshots/20250328-neovim-iterm2-everforest.png)
