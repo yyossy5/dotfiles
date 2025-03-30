@@ -34,7 +34,6 @@ return {
         "cmake",
         "docker_compose_language_service",
         "dockerls",
-        "eslint", -- javascript/typescript
         "gopls",
         -- "groovyls",
         "html",
@@ -49,13 +48,14 @@ return {
         "sqls",
         "terraformls", -- terraform lsp
         "tflint", -- terraform linter
+        "ts_ls", -- javascript/typescript
       },
       automatic_installation = true, -- Automatically install missing servers
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "eslint_d", -- js linter
+        "eslint_d", -- js/ts linter
         "markdownlint",
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
