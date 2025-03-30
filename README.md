@@ -2,12 +2,12 @@
 
 A collection of my personal dotfiles and configuration settings for development tools, designed for easy setup and consistent experience across different systems.
 
-## NeoVim Screenshot
+## NeoVim/iTerm2 Screenshot
 
 - 2025-03-29
 - Nightfox theme
 
-![NeoVim Screenshot](20250329-neovim-nightfox.png)
+![2025-03-29 NeoVim iTerm2 Screenshot](20250329-neovim-iterm2-nightfox.png)
 
 ## How to setup `dotfiles` on a new system
 
@@ -124,3 +124,11 @@ Raycast pro plan can manage the settings via cloud sync.
 ## Reference
 
 - https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ruff
+
+## Past NeoVim/iTerm2 Screenshots
+
+### 2025-03-28
+
+- everforest theme
+
+![20250-03-28 NeoVim iTerm2 Screenshot](20250328-neovim-iterm2-everforest.png)
