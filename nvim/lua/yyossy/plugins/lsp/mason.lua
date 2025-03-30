@@ -59,6 +59,8 @@ return {
         "markdownlint",
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
+        "shellcheck", -- shell linter
+        "shfmt", -- shell formatter
       },
     })
   end,
