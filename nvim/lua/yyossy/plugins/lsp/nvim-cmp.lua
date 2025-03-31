@@ -26,7 +26,14 @@ return {
     -- https://github.com/rafamadriz/friendly-snippets/issues/528
     -- https://github.com/rafamadriz/friendly-snippets/issues/350
     -- this shold be done before loading friendly-snippets(require("luasnip.loaders.from_vscode").lazy_load())
+    luasnip.filetype_extend("cpp", { "cppdoc" })
+    luasnip.filetype_extend("java", { "javadoc" })
+    luasnip.filetype_extend("javascript", { "jsdoc" })
+    luasnip.filetype_extend("lua", { "luadoc" })
     luasnip.filetype_extend("python", { "pydoc" })
+    luasnip.filetype_extend("rust", { "rustdoc" })
+    luasnip.filetype_extend("shell", { "shelldoc" })
+    luasnip.filetype_extend("typescript", { "tsdoc" })
 
     local lspkind = require("lspkind")
 
