@@ -3,8 +3,9 @@
 set -euo pipefail
 
 DOTFILES_DIR="$HOME/dotfiles"
-LOG_FILE="$DOTFILES_DIR/setup.log"
-BACKUP_SUFFIX=".bak.$(date +%Y%m%d%H%M%S)"
+LOG_TIMESTAMP="${LOG_TIMESTAMP:-$(date +%Y%m%d-%H%M%S)}"
+LOG_FILE="$DOTFILES_DIR/setup-$LOG_TIMESTAMP.log"
+BACKUP_SUFFIX=".bak.$LOG_TIMESTAMP"
 
 log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOG_FILE"
