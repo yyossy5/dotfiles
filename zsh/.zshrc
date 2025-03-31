@@ -228,7 +228,7 @@ alias glog='git log --oneline --decorate --graph'
 alias gpl='git pull'
 
 alias ggpush='git push origin "$(git_current_branch)"'
-alias gpf='git push --force-with-lease'
+alias ggpushf='git push --force-with-lease origin "$(git_current_branch)"'
 
 # alias grbd='git rebase $(git_develop_branch)'
 alias grbi='git rebase --interactive'
