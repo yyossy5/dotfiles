@@ -52,11 +52,8 @@ install_lazygit() {
 }
 
 install_gitconfig() {
-  log "Setting git global config for delta..."
-  git config --global core.pager delta
-  git config --global interactive.diffFilter 'delta --color-only'
-  git config --global delta.navigate true
-  git config --global merge.conflictStyle zdiff3
+  log "Setting up git config..."
+  backup_and_link "$HOME/.gitconfig" "$DOTFILES_DIR/git/.gitconfig"
 }
 
 install_brew() {
