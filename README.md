@@ -20,6 +20,19 @@ A collection of my personal dotfiles and configuration settings for development 
 
 > 🛠️ Note: `aqua` and your `.zshrc` can be set up automatically by this setup process.
 
+### Manual Setup Required
+
+#### Git Configuration
+
+After running the setup script, you need to create a `.gitconfig.local` file in your home directory.
+This file should contain your personal git configuration such as user name and email.
+A template is available at `~/dotfiles/git/.gitconfig.local`.
+
+```bash
+cp ~/dotfiles/git/.gitconfig.local ~/.gitconfig.local
+# Edit ~/.gitconfig.local with your personal information
+```
+
 ### Usage
 
 #### Clone the repository to your home directory
