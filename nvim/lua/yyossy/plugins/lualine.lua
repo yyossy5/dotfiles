@@ -62,7 +62,8 @@ return {
     lualine.setup({
       options = {
         --theme = my_lualine_theme,
-        theme = "everforest",
+        --theme = "everforest",
+        theme = "vscode",
       },
       sections = {
         lualine_c = { breadcrumbs },

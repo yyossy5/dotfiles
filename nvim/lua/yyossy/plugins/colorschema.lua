@@ -124,12 +124,12 @@ return {
       })
 
       -- setup must be called before loading
-      vim.cmd("colorscheme nightfox")
+      -- vim.cmd("colorscheme nightfox")
 
       -- Set the highlight for the current line number (absolute line number)
-      vim.cmd([[
-        highlight CursorLineNr guifg=#00ffff guibg=NONE gui=NONE
-      ]])
+      -- vim.cmd([[
+      --   highlight CursorLineNr guifg=#00ffff guibg=NONE gui=NONE
+      -- ]])
     end,
   },
   {
@@ -159,6 +159,50 @@ return {
         },
       })
       -- vim.cmd.colorscheme("nord")
+    end,
+  },
+  {
+    "Mofiqul/vscode.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local c = require("vscode.colors").get_colors()
+      require("vscode").setup({
+        -- Alternatively set style in setup
+        -- style = 'light'
+
+        -- Enable transparent background
+        transparent = false,
+
+        -- Enable italic comment
+        italic_comments = false,
+
+        -- Underline `@markup.link.*` variants
+        underline_links = true,
+
+        -- Disable nvim-tree background color
+        disable_nvimtree_bg = false,
+
+        -- Apply theme colors to terminal
+        terminal_colors = true,
+
+        -- -- Override colors (see ./lua/vscode/colors.lua)
+        -- color_overrides = {
+        --   vscLineNumber = "#FFFFFF",
+        -- },
+        --
+        -- Override highlight groups (see ./lua/vscode/theme.lua)
+        group_overrides = {
+          -- this supports the same val table as vim.api.nvim_set_hl
+          -- use colors from this colorscheme by requiring vscode.colors!
+          Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+        },
+      })
+      vim.cmd.colorscheme("vscode")
+      -- Set the highlight for the current line number (absolute line number)
+      vim.cmd([[
+        highlight CursorLineNr guifg=#00ffff guibg=NONE gui=NONE
+      ]])
     end,
   },
 }
