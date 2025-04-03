@@ -24,14 +24,9 @@ A collection of my personal dotfiles and configuration settings for development 
 
 #### Git Configuration
 
-After running the setup script, you need to create a `.gitconfig.local` file in your home directory.
-This file should contain your personal git configuration such as user name and email.
-A template is available at `~/dotfiles/git/.gitconfig.local`.
-
-```bash
-cp ~/dotfiles/git/.gitconfig.local ~/.gitconfig.local
-# Edit ~/.gitconfig.local with your personal information
-```
+Before running the setup script (`make gitconfig` or `make all`), edit `dotfiles/git/.gitconfig.local`
+to include your personal Git settings (e.g., user name and email).
+This file will be copied to your home directory as `~/.gitconfig.local` during the setup process.
 
 ### Usage
 
