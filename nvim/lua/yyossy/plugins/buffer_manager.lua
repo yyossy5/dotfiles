@@ -10,7 +10,24 @@ return {
         vsplit = { key = "<C-v>", command = "vsplit" },
         delete = { key = "<C-x>", command = "bdelete" },
       },
+      line_keys = "1234567890",
+      focus_alternate_buffer = false,
+      width = 100,
+      height = 30,
+      short_file_names = false,
+      show_depth = true,
+      short_term_names = true,
+      loop_nav = true,
+      highlight = "",
+      win_extra_options = {},
+      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      format_function = nil,
+      order_buffers = nil,
+      show_indicators = "before",
     })
+
+    -- Specify a custom color for the modified buffers
+    vim.api.nvim_set_hl(0, "BufferManagerModified", { fg = "#B4FFAD" })
 
     vim.keymap.set("n", "<leader>d", function()
       require("buffer_manager.ui").toggle_quick_menu()
