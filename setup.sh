@@ -29,6 +29,19 @@ backup_and_link() {
   log "Linked $source → $target"
 }
 
+backup_and_copy() {
+  local source="$1"
+  local target="$2"
+
+  if [ -e "$target" ] && [ ! -L "$target" ]; then
+    log "Backing up $target to ${target}${BACKUP_SUFFIX}"
+    mv "$target" "${target}${BACKUP_SUFFIX}"
+  fi
+
+  cp "$source" "$target"
+  log "Copied $source → $target"
+}
+
 install_zsh() {
   log "Setting up zsh..."
   backup_and_link "$HOME/.zshrc" "$DOTFILES_DIR/zsh/.zshrc"
@@ -54,6 +67,15 @@ install_lazygit() {
 install_gitconfig() {
   log "Setting up git config..."
   backup_and_link "$HOME/.gitconfig" "$DOTFILES_DIR/git/.gitconfig"
+
+  local local_gitconfig_src="$DOTFILES_DIR/git/.gitconfig.local"
+  local local_gitconfig_dst="$HOME/.gitconfig.local"
+
+  if [ -f "$local_gitconfig_src" ]; then
+    backup_and_copy "$local_gitconfig_src" "$local_gitconfig_dst"
+  else
+    log "No .gitconfig.local found at $local_gitconfig_src, skipping copy"
+  fi
 }
 
 install_brew() {
