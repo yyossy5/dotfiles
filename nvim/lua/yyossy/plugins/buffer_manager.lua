@@ -12,6 +12,9 @@ return {
       },
     })
 
+    -- Specify a custom color for the modified buffers
+    vim.api.nvim_set_hl(0, "BufferManagerModified", { fg = "#B4FFAD" })
+
     vim.keymap.set("n", "<leader>d", function()
       require("buffer_manager.ui").toggle_quick_menu()
     end, { desc = "Open Buffer Manager" })
