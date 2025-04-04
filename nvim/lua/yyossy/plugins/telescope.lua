@@ -46,8 +46,8 @@ return {
     local last_search_term = ""
 
     -- Custom function: prompt input with last used string
-    local function live_grep_with_input()
-      local input = vim.fn.input("Grep > ", last_search_term)
+    local function live_grep_with_input(text)
+      local input = text or vim.fn.input("Grep > ", last_search_term)
       if input == "" then
         return
       end
@@ -62,13 +62,20 @@ return {
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     -- keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fs", live_grep_with_input, { desc = "Find string in cwd (persistent input)" })
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    -- keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>fc", function()
+      local word = vim.fn.expand("<cWORD>")
+      if word ~= "" then
+        live_grep_with_input(word)
+      end
+    end, { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-    keymap.set(
-      "n",
-      "<leader>/",
-      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-      { desc = "Fuzzy find in current buffer" }
-    )
+    keymap.set("n", "<leader>/", function()
+      require("telescope.builtin").current_buffer_fuzzy_find({
+        -- no fuzzy
+        fuzzy = false,
+        case_mode = "smart_case",
+      })
+    end, { desc = "Find in current buffer" })
   end,
 }
