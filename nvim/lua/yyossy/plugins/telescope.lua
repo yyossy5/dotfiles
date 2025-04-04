@@ -64,11 +64,12 @@ return {
     keymap.set("n", "<leader>fs", live_grep_with_input, { desc = "Find string in cwd (persistent input)" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-    keymap.set(
-      "n",
-      "<leader>/",
-      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-      { desc = "Fuzzy find in current buffer" }
-    )
+    keymap.set("n", "<leader>/", function()
+      require("telescope.builtin").current_buffer_fuzzy_find({
+        -- no fuzzy
+        fuzzy = false,
+        case_mode = "smart_case",
+      })
+    end, { desc = "Find in current buffer (exact match)" })
   end,
 }
