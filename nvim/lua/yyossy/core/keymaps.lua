@@ -51,8 +51,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
--- Toggle command-line window with <leader>a
-keymap.set("n", "<leader>a", function()
+-- Toggle command-line window with <leader>u
+keymap.set("n", "<leader>u", function()
   -- Close the command-line window if it is open
   if vim.fn.getcmdwintype() ~= "" then
     vim.cmd("close")
