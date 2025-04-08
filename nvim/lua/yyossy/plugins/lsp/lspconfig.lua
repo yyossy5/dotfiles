@@ -77,6 +77,16 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- Override the default open_floating_preview to add border
+    local original_open_floating_preview = vim.lsp.util.open_floating_preview
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.lsp.util.open_floating_preview = function(contents, syntax, opts, ...)
+      ---@type table
+      opts = opts or {}
+      opts.border = opts.border or "double"
+      return original_open_floating_preview(contents, syntax, opts, ...)
+    end
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
@@ -111,6 +121,24 @@ return {
           root_dir = lspconfig.util.root_pattern(".git"),
         })
       end,
+      -- ["sqls"] = function()
+      --   -- https://github.com/sqls-server/sqls?tab=readme-ov-file#workspace-configuration-sample
+      --   lspconfig["sqls"].setup({
+      --     on_attach = function(client, bufnr)
+      --       require("sqls").on_attach(client, bufnr) -- require sqls.nvim
+      --     end,
+      --     settings = {
+      --       sqls = {
+      --         connections = {
+      --           {
+      --             driver = "mysql",
+      --             dataSourceName = "root:root@tcp(127.0.0.1:13306)/world",
+      --           },
+      --         },
+      --       },
+      --     },
+      --   })
+      -- end,
     })
   end,
 }
