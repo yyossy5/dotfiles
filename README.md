@@ -4,10 +4,11 @@ A collection of my personal dotfiles and configuration settings for development 
 
 ## NeoVim/iTerm2 Screenshot
 
-- 2025/4/2
-- vscode theme
+- 2025-04-09
+- neovim: carbonfox theme
+- iTerm2: Oxocarbon theme
 
-![2025-04-02 NeoVim iTerm2 Screenshot](./screenshots/20250402-neovim-iterm2-vscode.png)
+![2025-04-09 NeoVim iTerm2 Screenshot](./screenshots/20250409-neovim-carbonfox-iterm2-oxocarbon.png)
 
 ## How to setup `dotfiles` on a new system
 
@@ -134,6 +135,12 @@ Raycast pro plan can manage the settings via cloud sync.
 - https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ruff
 
 ## Past NeoVim/iTerm2 Screenshots
+
+### 2025-04-02
+
+- vscode theme
+
+![2025-04-02 NeoVim iTerm2 Screenshot](./screenshots/20250402-neovim-iterm2-vscode.png)
 
 ### 2025-03-29
 

@@ -125,11 +125,12 @@ return {
 
       -- setup must be called before loading
       -- vim.cmd("colorscheme nightfox")
+      vim.cmd("colorscheme carbonfox")
 
       -- Set the highlight for the current line number (absolute line number)
-      -- vim.cmd([[
-      --   highlight CursorLineNr guifg=#00ffff guibg=NONE gui=NONE
-      -- ]])
+      vim.cmd([[
+        highlight CursorLineNr guifg=#00ffff guibg=NONE gui=NONE
+      ]])
     end,
   },
   {
@@ -163,8 +164,8 @@ return {
   },
   {
     "Mofiqul/vscode.nvim",
-    lazy = false,
-    priority = 1000,
+    -- priority = 1000,
+    -- lazy = false,
     config = function()
       local c = require("vscode.colors").get_colors()
       require("vscode").setup({
@@ -198,11 +199,23 @@ return {
           Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
         },
       })
-      vim.cmd.colorscheme("vscode")
-      -- Set the highlight for the current line number (absolute line number)
-      vim.cmd([[
-        highlight CursorLineNr guifg=#00ffff guibg=NONE gui=NONE
-      ]])
+      -- vim.cmd.colorscheme("vscode")
+      -- -- Set the highlight for the current line number (absolute line number)
+      -- vim.cmd([[
+      --   highlight CursorLineNr guifg=#00ffff guibg=NONE gui=NONE
+      -- ]])
+    end,
+  },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    priority = 1000,
+    lazy = false,
+    -- Add in any other configuration;
+    --   event = foo,
+    --   config = bar
+    --   end,
+    config = function()
+      -- vim.cmd.colorscheme("oxocarbon")
     end,
   },
 }
