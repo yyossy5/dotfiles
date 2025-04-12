@@ -139,15 +139,15 @@ main() {
   for arg in "$@"; do
     case "$arg" in
     all)
-      install_zsh
-      install_nvim
-      install_tmux
-      install_lazygit
       install_brew
       install_openjdk_symlink
+      install_zsh
+      install_tmux
       install_aqua
       install_gitconfig
+      install_lazygit
       install_iterm2
+      install_nvim
       ;;
     zsh) install_zsh ;;
     nvim) install_nvim ;;
