@@ -169,6 +169,9 @@ eval "$(uv generate-shell-completion zsh)"
 # execute the following after installing conda (this will be written to ~/.condarc):
 # `conda config --set auto_activate_base false`
 
+# Moved the conda settings written in .bash_profile to .zshrc
+# (replaced `shell.bash` with `shell.zsh`)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
