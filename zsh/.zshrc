@@ -165,6 +165,10 @@ source "$HOME/Projects/airflow/dev/breeze/autocomplete/breeze-complete-zsh.sh"
 eval "$(uv generate-shell-completion zsh)"
 
 # -------------------- Conda --------------------
+# To prevent the base environment from being activated automatically,
+# execute the following after installing conda (this will be written to ~/.condarc):
+# `conda config --set auto_activate_base false`
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
