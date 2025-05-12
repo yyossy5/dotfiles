@@ -16,7 +16,7 @@ A collection of my personal dotfiles and configuration settings for development 
 
 - macOS
 - Homebrew is installed
-- [`aqua`](https://aquaproj.github.io/) (installed via Homebrew)
+- [`aqua`](https://aquaproj.github.io/) (You can manually install it by `brew install aqua`)
 - Your `.zshrc` will be installed and configured to point to your global `aqua.yaml` (e.g., via `AQUA_GLOBAL_CONFIG`)
 
 > 🛠️ Note: `aqua` and your `.zshrc` can be set up automatically by this setup process.
