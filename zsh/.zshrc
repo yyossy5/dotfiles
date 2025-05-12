@@ -219,7 +219,7 @@ export AQUA_GLOBAL_CONFIG="$HOME/dotfiles/aqua/aqua.yaml"
 export AQUA_REMOVE_MODE=pl
 
 # -------------------- fzf --------------------
-FZF_BASE="$HOME/.local/share/aquaproj-aqua/bin/fzf"
+export FZF_BASE="$HOME/.local/share/aquaproj-aqua/bin/fzf"
 alias ahelp='alias | fzf'      # Interactive search for aliases
 alias fhelp='declare -f | fzf' # Interactive search for shell functions
 alias chelp='compgen -c | fzf' # Interactive search for all available commands (bash-compatible)
