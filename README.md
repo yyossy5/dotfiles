@@ -18,6 +18,8 @@ A collection of my personal dotfiles and configuration settings for development 
 - Homebrew is installed
 - [`aqua`](https://aquaproj.github.io/) (You can manually install it by `brew install aqua`)
 - Your `.zshrc` will be installed and configured to point to your global `aqua.yaml` (e.g., via `AQUA_GLOBAL_CONFIG`)
+- Oh-my-zsh is installed
+  - https://ohmyz.sh/#install
 
 > 🛠️ Note: `aqua` and your `.zshrc` can be set up automatically by this setup process.
 
