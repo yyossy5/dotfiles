@@ -71,6 +71,12 @@ To use the iTerm2 config managed in this repository, make sure the following set
 2. Enable: ✅ **Load settings from a custom folder or URL**
 3. Set the folder path to: ~/Documents/ConfigFiles/iTerm2
 
+#### brew
+
+Sometimes, not everything gets installed properly with a single `brew install`.
+
+In such cases, you can rerun it with `make brew`.
+
 ## How to add `dotfiles` to this repository
 
 You can add new dotfiles to this repository by following these steps:
