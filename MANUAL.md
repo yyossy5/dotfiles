@@ -13,6 +13,12 @@
 - ✅️カレンダーの通知が来るようにする
 - Slackの通知が来るようにする
 
+## Bluetooth接続しておく
+
+- ✅️Keyboard
+- ✅️Trackpad
+- ✅️airpods
+
 ## ファイル移行
 
 - ✅️iOSメモ移行
