@@ -67,7 +67,7 @@
 
 ### Python
 (- pyenvインストール)
-- pythonインストール
+- ✅️pythonインストール
   - https://www.python.org/downloads/ から最新のPythonを入れておく
   - `sudo ln -sf /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 /usr/local/bin/python`のようにして`python3`ではなく`python`コマンドで使えるようにしておく
 - uvインストール
