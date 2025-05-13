@@ -104,3 +104,11 @@
 - Evernote
 - Raycast
 - bettertouchtool
+
+## ログアウト
+
+- Google
+- GitHub
+- connpass
+- Qiita
+- OpenAI
