@@ -73,6 +73,11 @@
 - ✅️uvインストール
   - https://docs.astral.sh/uv/getting-started/installation/
 
+### Go
+
+- ✅️goインストール
+  - `brew install go`
+
 ## Chrome（Googleアカウントによる同期が使えない場合）
 - ✅️ブックマークと開いているタブのインポート
 	- 開いているタブはブックマークとしてエクスポートできる
