@@ -25,7 +25,7 @@
 - ✅️Dockから要らないものを削除
 
 ## Python
-- pyenvインストール
+(- pyenvインストール)
 - uvインストール
 
 ## Chrome（Googleアカウントによる同期が使えない場合）
