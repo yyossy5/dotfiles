@@ -51,7 +51,9 @@ Chrome拡張機能
 - ✅️Evernote WebClipper
 - ✅️Authenticator
   - 旧Macでバックアップファイルをエクスポートし新Macでインポート
-    - https://mp-faq.gmo-pg.com/s/article/F00064 
+    - https://mp-faq.gmo-pg.com/s/article/F00064
+- ✅️テキストエンコーディング
+- ✅️DeepL
 
 見た目系
 - ✅️ダークモードにする
