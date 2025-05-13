@@ -234,6 +234,7 @@ alias ga='git add'
 alias gb='git branch'
 alias gbd='git branch --delete'
 
+alias gck='git checkout'
 alias gckb='git checkout -b'
 alias gck-='git checkout -'
 alias gckd='git checkout $(git_develop_branch)'
