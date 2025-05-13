@@ -28,6 +28,8 @@
 - ✅️Google日本語入力
   - インストール後に再起動が必要
   - https://www.radical-dreamer.com/pc/google_ime_on_mac/
+- ✅️Google Meetアプリインストール
+  - http://jicoo.com/magazine/blog/google-meet-app
 - ✅️bettertouchtools
   - ライセンスインポート
   - 設定インポート
