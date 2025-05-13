@@ -23,16 +23,30 @@
   - 設定のコントロールセンターでメニューバーに表示させそこから有効化可能
 - drawioインストール
 
-Python
+## Python
 - pyenvインストール
 - uvインストール
 
-Chrome（Googleアカウントによる同期が使えない場合）
+## Chrome（Googleアカウントによる同期が使えない場合）
 - ✅️ブックマークと開いているタブのインポート
 	- 開いているタブはブックマークとしてエクスポートできる
 		- https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10275424330
+ 
+### 拡張機能
 
-操作系
+- ✅️ProxySwitchyOmega3(ZeroOmega)
+  - 旧Macで設定をエクスポートし新Macでインポート
+- ✅️Evernote WebClipper
+- ✅️Authenticator
+  - 旧Macでバックアップファイルをエクスポートし新Macでインポート
+    - https://mp-faq.gmo-pg.com/s/article/F00064
+- ✅️テキストエンコーディング
+- ✅️DeepL
+
+
+
+## 操作系
+
 - ✅️capslockをctrlにする（USキーボード）
 - ✅️bettertouchtools
 	- ライセンスインポート
@@ -45,20 +59,12 @@ Chrome（Googleアカウントによる同期が使えない場合）
 			- キーボード→キーボードショートカット→Spotlightでオフ可能
 	- my-snippetsをcloneしておく
 
-Chrome拡張機能
-- ✅️ProxySwitchyOmega3(ZeroOmega)
-  - 旧Macで設定をエクスポートし新Macでインポート
-- ✅️Evernote WebClipper
-- ✅️Authenticator
-  - 旧Macでバックアップファイルをエクスポートし新Macでインポート
-    - https://mp-faq.gmo-pg.com/s/article/F00064
-- ✅️テキストエンコーディング
-- ✅️DeepL
 
-見た目系
+## 見た目系
 - ✅️ダークモードにする
 
 # 旧Mac TODO
 
-- アンインストール
-	- Evernote
+## アンインストール
+
+- Evernote
