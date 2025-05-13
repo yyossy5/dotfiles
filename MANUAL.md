@@ -1,23 +1,13 @@
 # 新Mac TODO
 
 - ✅️dotfilesインストール
-- ✅️sshキーをコピー
-	- ~/.ssh配下をもっていけばOK
-- ✅️Docker Desktop入れる
-  - docker composeも一緒に使えるようになる
-- ✅️Evernote
 - ✅️iOSメモ移行
-	- Mac純正メモアプリのデータを別端末（Mac）に移行させる方法 - MiFFlog
-- ✅️iTerm2インストール
+  - Mac純正メモアプリのデータを別端末（Mac）に移行させる方法 - MiFFlog
 - ✅️ログインパスワード変更
 - ✅️Google日本語入力
-	- インストール後に再起動が必要
-	- https://www.radical-dreamer.com/pc/google_ime_on_mac/
+  - インストール後に再起動が必要
+  - https://www.radical-dreamer.com/pc/google_ime_on_mac/
 - ✅️Slackインストール
-- ✅️コマンドラインツールのインストール（XCode）
-	- ターミナルでgitコマンドを実行すると無いのでコマンドラインツールをインストールするか聞かれる
-- VSCodeインストール
-	- AIが使える確認
 - ✅️バッテリー%表示
   - 設定のコントロールセンターから可能
 - ✅️ステージマネージャON
@@ -26,8 +16,21 @@
 - ✅️Dockから要らないものを削除
 - ✅️最近作業していてクラウド上にも無いファイル群などをコピーしてくる
 - ✅️Zoomインストール
+- ✅️Evernote
 
-## Python
+## 開発
+
+- ✅️iTerm2インストール
+- ✅️コマンドラインツールのインストール（XCode）
+  - ターミナルでgitコマンドを実行すると無いのでコマンドラインツールをインストールするか聞かれる
+- ✅️sshキーをコピー
+  - ~/.ssh配下をもっていけばOK
+- ✅️Docker Desktop入れる
+  - docker composeも一緒に使えるようになる
+- VSCodeインストール
+  - AIが使える確認
+
+### Python
 (- pyenvインストール)
 - pythonインストール
 - uvインストール
