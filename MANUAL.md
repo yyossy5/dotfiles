@@ -65,6 +65,7 @@
 - ✅️Docker Desktop入れる
   - docker composeも一緒に使えるようになる
 - VSCodeインストール
+  - (同期使っていない場合)プロファイル移行 https://qiita.com/The-town/items/dcb29a138908ac79a2ea
   - AIが使える確認
 
 ### Python
