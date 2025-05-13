@@ -26,6 +26,7 @@
 
 ## Python
 (- pyenvインストール)
+- pythonインストール
 - uvインストール
 
 ## Chrome（Googleアカウントによる同期が使えない場合）
