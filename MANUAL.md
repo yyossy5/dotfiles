@@ -76,3 +76,5 @@
 ## アンインストール
 
 - Evernote
+- Raycast
+- bettertouchtool
