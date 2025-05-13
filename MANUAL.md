@@ -3,6 +3,8 @@
 ## Mac設定
 
 - ✅️ログインパスワード変更
+- ✅️ダークモードにする
+- ✅️capslockをctrlにする（USキーボード）
 - ✅️バッテリー%表示
   - 設定のコントロールセンターから可能
 - ✅️ステージマネージャON
@@ -24,6 +26,16 @@
 - ✅️Google日本語入力
   - インストール後に再起動が必要
   - https://www.radical-dreamer.com/pc/google_ime_on_mac/
+- ✅️bettertouchtools
+  - ライセンスインポート
+  - 設定インポート
+    - 自分のgmail検索するとライセンスファイルのメールある
+- ✅️Raycast
+  - インストールしたらアプリ上でログインしCloud Syncをオンにする
+  - Cmd + Spaceを起動ショートカットにする
+    - Cmd + SpaceはデフォルトではMac標準のSpotlightが開くので、オフする
+      - キーボード→キーボードショートカット→Spotlightでオフ可能
+  - my-snippetsをcloneしておく
 
 ## 開発
 
@@ -58,26 +70,6 @@
     - https://mp-faq.gmo-pg.com/s/article/F00064
 - ✅️テキストエンコーディング
 - ✅️DeepL
-
-
-
-## 操作系
-
-- ✅️capslockをctrlにする（USキーボード）
-- ✅️bettertouchtools
-	- ライセンスインポート
-	- 設定インポート
-		- 自分のgmail検索するとライセンスファイルのメールある
-- ✅️Raycast
-	- インストールしたらアプリ上でログインしCloud Syncをオンにする
-	- Cmd + Spaceを起動ショートカットにする
-		- Cmd + SpaceはデフォルトではMac標準のSpotlightが開くので、オフする
-			- キーボード→キーボードショートカット→Spotlightでオフ可能
-	- my-snippetsをcloneしておく
-
-
-## 見た目系
-- ✅️ダークモードにする
 
 # 旧Mac TODO
 
