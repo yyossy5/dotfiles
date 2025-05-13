@@ -46,9 +46,12 @@ Chrome（Googleアカウントによる同期が使えない場合）
 	- my-snippetsをcloneしておく
 
 Chrome拡張機能
-- ProxyOmega
-- ✅️Evernote
-- Authenticator
+- ✅️ProxySwitchyOmega3(ZeroOmega)
+  - 旧Macで設定をエクスポートし新Macでインポート
+- ✅️Evernote WebClipper
+- ✅️Authenticator
+  - 旧Macでバックアップファイルをエクスポートし新Macでインポート
+    - https://mp-faq.gmo-pg.com/s/article/F00064 
 
 見た目系
 - ✅️ダークモードにする
