@@ -70,7 +70,8 @@
 - ✅️pythonインストール
   - https://www.python.org/downloads/ から最新のPythonを入れておく
   - `sudo ln -sf /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 /usr/local/bin/python`のようにして`python3`ではなく`python`コマンドで使えるようにしておく
-- uvインストール
+- ✅️uvインストール
+  - https://docs.astral.sh/uv/getting-started/installation/
 
 ## Chrome（Googleアカウントによる同期が使えない場合）
 - ✅️ブックマークと開いているタブのインポート
