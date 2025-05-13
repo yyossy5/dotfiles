@@ -45,12 +45,14 @@
   - ライセンスインポート
   - 設定インポート
     - 自分のgmail検索するとライセンスファイルのメールある
-- ✅️Raycast
+- Raycast
   - インストールしたらアプリ上でログインしCloud Syncをオンにする
   - Cmd + Spaceを起動ショートカットにする
     - Cmd + SpaceはデフォルトではMac標準のSpotlightが開くので、オフする
       - キーボード→キーボードショートカット→Spotlightでオフ可能
   - my-snippetsをcloneしておく
+  - カレンダーを連携しておく（会議に参加しやすくするため）
+    - https://qiita.com/nagauta/items/4286a45d96be6aafb32e
 
 ## 開発
 
