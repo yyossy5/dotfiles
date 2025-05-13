@@ -1,28 +1,36 @@
 # 新Mac TODO
 
-- ✅️dotfilesインストール
-- ✅️iOSメモ移行
-  - Mac純正メモアプリのデータを別端末（Mac）に移行させる方法 - MiFFlog
+## Mac設定
+
 - ✅️ログインパスワード変更
-- ✅️Google日本語入力
-  - インストール後に再起動が必要
-  - https://www.radical-dreamer.com/pc/google_ime_on_mac/
-- ✅️Slackインストール
 - ✅️バッテリー%表示
   - 設定のコントロールセンターから可能
 - ✅️ステージマネージャON
   - 設定のコントロールセンターでメニューバーに表示させそこから有効化可能
-- ✅️drawioインストール
 - ✅️Dockから要らないものを削除
+
+## ファイル移行
+
+- ✅️iOSメモ移行
+  - Mac純正メモアプリのデータを別端末（Mac）に移行させる方法 - MiFFlog
 - ✅️最近作業していてクラウド上にも無いファイル群などをコピーしてくる
-- ✅️Zoomインストール
+
+## 必要アプリケーションインストール
+
+- ✅️Slack
+- ✅️Zoom
+- ✅️drawio
 - ✅️Evernote
+- ✅️Google日本語入力
+  - インストール後に再起動が必要
+  - https://www.radical-dreamer.com/pc/google_ime_on_mac/
 
 ## 開発
 
 - ✅️iTerm2インストール
 - ✅️コマンドラインツールのインストール（XCode）
   - ターミナルでgitコマンドを実行すると無いのでコマンドラインツールをインストールするか聞かれる
+- ✅️dotfilesインストール
 - ✅️sshキーをコピー
   - ~/.ssh配下をもっていけばOK
 - ✅️Docker Desktop入れる
