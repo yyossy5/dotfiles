@@ -3,7 +3,8 @@
 - ✅️dotfilesインストール
 - ✅️sshキーをコピー
 	- ~/.ssh配下をもっていけばOK
-- Docker Desktop入れる
+- ✅️Docker Desktop入れる
+  - docker composeも一緒に使えるようになる
 - ✅️Evernote
 - ✅️iOSメモ移行
 	- Mac純正メモアプリのデータを別端末（Mac）に移行させる方法 - MiFFlog
