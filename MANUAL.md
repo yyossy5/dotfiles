@@ -101,14 +101,14 @@
 
 ## アンインストール
 
-- Evernote
-- Raycast
-- bettertouchtool
+- ✅️Evernote
+- ✅️Raycast
+- ✅️bettertouchtool
 
 ## ログアウト
 
-- Google
-- GitHub
-- connpass
-- Qiita
-- OpenAI
+- ✅️Google
+- ✅️GitHub
+- ✅️connpass
+- ✅️Qiita
+- ✅️OpenAI
