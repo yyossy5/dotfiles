@@ -5,9 +5,6 @@
     excludesfile = ~/.gitignore_global
     pager = delta
 
-[commit]
-    template = ~/.stCommitMsg
-
 [http]
     cookiefile = ~/.gitcookies
 
