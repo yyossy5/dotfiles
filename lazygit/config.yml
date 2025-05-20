@@ -5,6 +5,15 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
+# Background refreshes
+refresher:
+  # File/submodule refresh interval in seconds.
+  # Auto-refresh can be disabled via option 'git.autoRefresh'.
+  refreshInterval: 10
+
+  # Re-fetch interval in seconds.
+  # Auto-fetch can be disabled via option 'git.autoFetch'.
+  fetchInterval: 60
 #os:
 #  # https://zenn.dev/rikson/articles/2024-05-26_rikson_lazygit-nvim-remote-integration
 #  editPreset: "nvim-remote"
