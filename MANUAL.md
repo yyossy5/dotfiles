@@ -77,6 +77,9 @@
   - `sudo ln -sf /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 /usr/local/bin/python`のようにして`python3`ではなく`python`コマンドで使えるようにしておく
 - ✅️uvインストール
   - https://docs.astral.sh/uv/getting-started/installation/
+- ✅️ruffインストール
+  - `uv tool install ruff@latest`
+    - https://docs.astral.sh/ruff/installation/
 
 ### Go
 
