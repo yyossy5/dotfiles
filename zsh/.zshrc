@@ -228,6 +228,8 @@ alias chelp='compgen -c | fzf' # Interactive search for all available commands (
 export VISUAL=nvim
 export EDITOR=nvim
 
+alias sshconfig="vim ~/.ssh/config"
+
 # --------------------- git --------------------
 alias ga='git add'
 
