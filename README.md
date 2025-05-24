@@ -144,19 +144,13 @@ Raycast pro plan can manage the settings via cloud sync.
 
 ## Past NeoVim/iTerm2 Screenshots
 
-### 2025-04-02
-
 - vscode theme
 
 ![2025-04-02 NeoVim iTerm2 Screenshot](./screenshots/20250402-neovim-iterm2-vscode.png)
 
-### 2025-03-29
-
 - Nightfox theme
 
 ![2025-03-29 NeoVim iTerm2 Screenshot](./screenshots/20250329-neovim-iterm2-nightfox.png)
-
-### 2025-03-28
 
 - everforest theme
 
