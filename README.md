@@ -37,7 +37,7 @@ This file will be copied to your home directory as `~/.gitconfig.local` during t
 
 ```bash
 cd
-git clone git@github.com:teihenn/dotfiles.git
+git clone git@github.com:yyossy5/dotfiles.git
 cd dotfiles
 ```
 
