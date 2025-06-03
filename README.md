@@ -31,6 +31,10 @@ Before running the setup script (`make gitconfig` or `make all`), edit `dotfiles
 to include your personal Git settings (e.g., user name and email).
 This file will be copied to your home directory as `~/.gitconfig.local` during the setup process.
 
+#### tpm(tmux plugin manager)
+
+https://github.com/tmux-plugins/tpm
+
 ### Usage
 
 #### Clone the repository to your home directory
