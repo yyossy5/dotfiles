@@ -35,6 +35,14 @@ return {
 		{ key = "8", mods = "LEADER", action = act.ActivateTab(7) },
 		{ key = "9", mods = "LEADER", action = act.ActivateTab(8) },
 
+		-- ペインを閉じる（tmuxのPrefix + x相当）
+		-- TODO: 確認付きにしたい
+		{
+			key = "x",
+			mods = "LEADER",
+			action = act.CloseCurrentPane({ confirm = true }),
+		},
+
 		-- コピーモード
 		{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 
