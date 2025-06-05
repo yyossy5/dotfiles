@@ -18,6 +18,20 @@ return {
 		-- 新しいウインドウを作成（tmuxのPrefix + c相当）
 		{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 
+		-- ウインドウ（タブ）の名前を変更（tmuxのPrefix + ,相当）
+		{
+			key = ",",
+			mods = "LEADER",
+			action = act.PromptInputLine({
+				description = "タブ名を入力:",
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						window:active_tab():set_title(line)
+					end
+				end),
+			}),
+		},
+
 		-- 前のウインドウに移動（tmuxのPrefix + p相当）
 		{ key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
 
