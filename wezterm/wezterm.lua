@@ -15,6 +15,18 @@ return {
 		{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
 		{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 
+		-- ペインを入れ替え（tmuxのPrefix + {, Prefix + }相当）
+		{
+			key = "{",
+			mods = "LEADER|SHIFT",
+			action = act.RotatePanes("CounterClockwise"),
+		},
+		{
+			key = "}",
+			mods = "LEADER|SHIFT",
+			action = act.RotatePanes("Clockwise"),
+		},
+
 		-- 新しいタブを作成（tmuxのPrefix + c相当）
 		{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 
