@@ -1,5 +1,0 @@
-[2025-04-03 23:31:24] Setting up git config...
-[2025-04-03 23:31:24] Backing up /Users/y_yoshida/.gitconfig to /Users/y_yoshida/.gitconfig.bak.20250403-233124
-[2025-04-03 23:31:24] Linked /Users/y_yoshida/dotfiles/git/.gitconfig → /Users/y_yoshida/.gitconfig
-[2025-04-03 23:31:24] Copied /Users/y_yoshida/dotfiles/git/.gitconfig.local → /Users/y_yoshida/.gitconfig.local
-[2025-04-03 23:31:24] Setup completed.
