@@ -40,11 +40,11 @@ return {
 	scrollback_lines = 10000,
 
 	-- エスケープキー入力待ち時間を短く設定
-	term = {
-		-- Tmux互換の設定: escape sequences don't wait
-		set_environment_variables = {
-			TERM = "xterm-256color",
-		},
+	term = "xterm-256color",
+
+	-- 環境変数設定
+	set_environment_variables = {
+		TERM = "xterm-256color",
 	},
 
 	-- vi modeをコピーモードのデフォルトにする
@@ -52,4 +52,3 @@ return {
 		copy_mode = wezterm.gui.default_key_tables().copy_mode,
 	},
 }
-
