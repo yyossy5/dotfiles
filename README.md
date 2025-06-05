@@ -35,6 +35,10 @@ This file will be copied to your home directory as `~/.gitconfig.local` during t
 
 https://github.com/tmux-plugins/tpm
 
+#### Claude Code
+
+claude code
+
 ### Usage
 
 #### Clone the repository to your home directory
