@@ -43,6 +43,14 @@ return {
 			action = act.CloseCurrentPane({ confirm = true }),
 		},
 
+		-- ウインドウを閉じる（tmuxのPrefix + &相当）
+		-- TODO: 確認付きにしたい
+		{
+			key = "&",
+			mods = "LEADER|SHIFT",
+			action = act.CloseCurrentTab({ confirm = true }),
+		},
+
 		-- コピーモード
 		{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 
