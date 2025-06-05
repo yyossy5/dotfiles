@@ -15,10 +15,10 @@ return {
 		{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
 		{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 
-		-- 新しいウインドウを作成（tmuxのPrefix + c相当）
+		-- 新しいタブを作成（tmuxのPrefix + c相当）
 		{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 
-		-- ウインドウ（タブ）の名前を変更（tmuxのPrefix + ,相当）
+		-- タブの名前を変更（tmuxのPrefix + ,相当）
 		{
 			key = ",",
 			mods = "LEADER",
@@ -32,13 +32,13 @@ return {
 			}),
 		},
 
-		-- 前のウインドウに移動（tmuxのPrefix + p相当）
+		-- 前のタブに移動（tmuxのPrefix + p相当）
 		{ key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
 
-		-- 次のウインドウに移動（tmuxのPrefix + n相当）
+		-- 次のタブに移動（tmuxのPrefix + n相当）
 		{ key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
 
-		-- 数字キーで指定したウインドウに移動（tmuxのPrefix + 数字相当）
+		-- 数字キーで指定したタブに移動（tmuxのPrefix + 数字相当）
 		{ key = "1", mods = "LEADER", action = act.ActivateTab(0) },
 		{ key = "2", mods = "LEADER", action = act.ActivateTab(1) },
 		{ key = "3", mods = "LEADER", action = act.ActivateTab(2) },
@@ -57,7 +57,7 @@ return {
 			action = act.CloseCurrentPane({ confirm = true }),
 		},
 
-		-- ウインドウを閉じる（tmuxのPrefix + &相当）
+		-- タブを閉じる（tmuxのPrefix + &相当）
 		-- TODO: 確認付きにしたい
 		{
 			key = "&",
