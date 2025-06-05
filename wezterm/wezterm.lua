@@ -117,12 +117,13 @@ return {
 	-- ==================== Appearance ====================
 	-- https://wezterm.org/config/appearance.html
 
-	-- カラースキーム設定
-	color_scheme = "Oxocarbon Dark (Gogh)",
-
 	-- フォント設定
 	font = wezterm.font("Hack Nerd Font Mono"),
 	font_size = 12.5,
+
+	-- ----- Oxocarbon start -----
+	-- カラースキーム設定
+	color_scheme = "Oxocarbon Dark (Gogh)",
 
 	-- カスタム色設定（ANSI色を上書き）
 	colors = {
@@ -156,5 +157,7 @@ return {
 		cursor_fg = "#161616", -- カーソルの前景色
 		selection_bg = "#353a45", -- 選択範囲の背景色
 		selection_fg = "#f2f4f8", -- 選択範囲の前景色
+
+		-- ----- Oxocarbon end -----
 	},
 }
