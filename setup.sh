@@ -130,9 +130,15 @@ install_iterm2() {
   backup_and_link "$target" "$source"
 }
 
+install_claude() {
+  log "Setting up Claude config..."
+  mkdir -p "$HOME/.claude"
+  backup_and_link "$HOME/.claude" "$DOTFILES_DIR/claude"
+}
+
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude]"
     exit 1
   fi
 
@@ -148,6 +154,7 @@ main() {
       install_lazygit
       install_iterm2
       install_nvim
+      install_claude
       ;;
     zsh) install_zsh ;;
     nvim) install_nvim ;;
@@ -160,6 +167,7 @@ main() {
     aqua) install_aqua ;;
     gitconfig) install_gitconfig ;;
     iterm2) install_iterm2 ;;
+    claude) install_claude ;;
     *)
       echo "Unknown option: $arg"
       exit 1
