@@ -101,6 +101,7 @@ node
 openjdk@21
 tmux
 tree
+wezterm
 EOF
 }
 
@@ -134,11 +135,15 @@ install_claude() {
   log "Setting up Claude config..."
   mkdir -p "$HOME/.claude"
   backup_and_link "$HOME/.claude" "$DOTFILES_DIR/claude"
+
+install_wezterm() {
+  log "Setting up WezTerm..."
+  backup_and_link "$HOME/.wezterm.lua" "$DOTFILES_DIR/wezterm/wezterm.lua"
 }
 
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|wezterm]"
     exit 1
   fi
 
@@ -153,6 +158,7 @@ main() {
       install_gitconfig
       install_lazygit
       install_iterm2
+      install_wezterm
       install_nvim
       install_claude
       ;;
@@ -168,6 +174,7 @@ main() {
     gitconfig) install_gitconfig ;;
     iterm2) install_iterm2 ;;
     claude) install_claude ;;
+    wezterm) install_wezterm ;;
     *)
       echo "Unknown option: $arg"
       exit 1
