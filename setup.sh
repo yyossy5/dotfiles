@@ -135,6 +135,7 @@ install_claude() {
   log "Setting up Claude config..."
   mkdir -p "$HOME/.claude"
   backup_and_link "$HOME/.claude" "$DOTFILES_DIR/claude"
+}
 
 install_wezterm() {
   log "Setting up WezTerm..."
