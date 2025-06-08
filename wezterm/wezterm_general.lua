@@ -9,14 +9,6 @@ function M.setup()
 
 		-- スクロールバッファサイズ
 		scrollback_lines = 10000,
-
-		-- エスケープキー入力待ち時間を短く設定
-		term = "xterm-256color",
-
-		-- 環境変数設定
-		set_environment_variables = {
-			TERM = "xterm-256color",
-		},
 	}
 end
 
