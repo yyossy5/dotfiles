@@ -6,7 +6,10 @@ local M = {}
 function M.setup()
 	return {
 		leader = { key = "g", mods = "CTRL", timeout_milliseconds = 1000 },
+
 		keys = {
+			-- ==================== Pane ====================
+
 			-- ペイン分割
 			{ key = "\\", mods = "LEADER", action = act.SplitHorizontal },
 			{ key = "-", mods = "LEADER", action = act.SplitVertical },
@@ -28,6 +31,16 @@ function M.setup()
 				mods = "LEADER|SHIFT",
 				action = act.RotatePanes("Clockwise"),
 			},
+
+			-- ペインを閉じる（tmuxのPrefix + x相当）
+			-- TODO: 確認付きにしたいかも
+			{
+				key = "x",
+				mods = "LEADER",
+				action = act.CloseCurrentPane({ confirm = true }),
+			},
+
+			-- ==================== Tab ====================
 
 			-- 新しいタブを作成（tmuxのPrefix + c相当）
 			{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
@@ -63,35 +76,12 @@ function M.setup()
 			{ key = "8", mods = "LEADER", action = act.ActivateTab(7) },
 			{ key = "9", mods = "LEADER", action = act.ActivateTab(8) },
 
-			-- ペインを閉じる（tmuxのPrefix + x相当）
-			-- TODO: 確認付きにしたい
-			{
-				key = "x",
-				mods = "LEADER",
-				action = act.CloseCurrentPane({ confirm = true }),
-			},
-
 			-- タブを閉じる（tmuxのPrefix + &相当）
-			-- TODO: 確認付きにしたい
+			-- TODO: 確認付きにしたいかも
 			{
 				key = "&",
 				mods = "LEADER|SHIFT",
 				action = act.CloseCurrentTab({ confirm = true }),
-			},
-
-			-- コピーモード
-			{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
-
-			-- コピーモード内の設定（vimスタイル）
-			{ key = "v", mods = "NONE", action = act.CopyMode({ SetSelectionMode = "Cell" }), mode = "copy" },
-			{
-				key = "y",
-				mods = "NONE",
-				action = act.Multiple({
-					act.CopyTo("ClipboardAndPrimarySelection"),
-					act.CopyMode("Close"),
-				}),
-				mode = "copy",
 			},
 
 			-- ==================== Workspace ====================
@@ -161,6 +151,23 @@ function M.setup()
 						end
 					end),
 				}),
+			},
+
+			-- ==================== Copy mode ====================
+
+			-- コピーモード
+			{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
+
+			-- コピーモード内の設定（vimスタイル）
+			{ key = "v", mods = "NONE", action = act.CopyMode({ SetSelectionMode = "Cell" }), mode = "copy" },
+			{
+				key = "y",
+				mods = "NONE",
+				action = act.Multiple({
+					act.CopyTo("ClipboardAndPrimarySelection"),
+					act.CopyMode("Close"),
+				}),
+				mode = "copy",
 			},
 		},
 
