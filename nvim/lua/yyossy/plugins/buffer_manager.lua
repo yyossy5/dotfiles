@@ -12,7 +12,7 @@ return {
       },
       line_keys = "1234567890",
       focus_alternate_buffer = false,
-      width = 110,
+      width = 150,
       height = 30,
       short_file_names = false,
       show_depth = true,
