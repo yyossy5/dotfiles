@@ -107,12 +107,13 @@ return {
             -- Get all available code actions for import resolution
             vim.lsp.buf.code_action({
               filter = function(action)
-                return action.kind and (
-                  string.match(action.kind, "quickfix") or
-                  string.match(action.kind, "source") or
-                  string.match(action.title, "[Ii]mport")
-                )
-              end
+                return action.kind
+                  and (
+                    string.match(action.kind, "quickfix")
+                    or string.match(action.kind, "source")
+                    or string.match(action.title, "[Ii]mport")
+                  )
+              end,
             })
           end, opts)
 
@@ -120,18 +121,18 @@ return {
           keymap.set("n", "<leader>jI", function()
             local params = vim.lsp.util.make_range_params()
             params.context = { only = { "source.organizeImports", "quickfix" } }
-            
+
             vim.lsp.buf_request(0, "textDocument/codeAction", params, function(err, result, ctx, config)
               if err then
                 vim.notify("Error getting code actions: " .. err.message, vim.log.levels.ERROR)
                 return
               end
-              
+
               if not result or vim.tbl_isempty(result) then
                 vim.notify("No import actions available", vim.log.levels.INFO)
                 return
               end
-              
+
               -- Apply the first import-related action
               for _, action in ipairs(result) do
                 if action.title and string.match(action.title, "[Ii]mport") then
@@ -139,7 +140,7 @@ return {
                   return
                 end
               end
-              
+
               vim.notify("No import actions found", vim.log.levels.INFO)
             end)
           end, opts)
