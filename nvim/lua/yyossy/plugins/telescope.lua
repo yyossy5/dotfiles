@@ -15,7 +15,7 @@ return {
       defaults = {
         file_ignore_patterns = { "%.git/" }, -- exclude .git directory
         find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" }, -- exclude .git directory
-        path_display = { "smart" },
+        path_display = { "absolute" },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -52,7 +52,12 @@ return {
         return
       end
       last_search_term = input
-      require("telescope.builtin").live_grep({ default_text = input })
+      require("telescope.builtin").live_grep(vim.tbl_extend("force", { default_text = input }, opts))
+    end
+
+    -- Custom function: prompt input with fuzzy search
+    local function live_grep_fuzzy_with_input(text)
+      live_grep_with_input(text, { fuzzy = true })
     end
 
     -- set keymaps
@@ -62,6 +67,7 @@ return {
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     --keymap.set("n", "<leader>fs", live_grep_with_input, { desc = "Find string in cwd (persistent input)" })
+    keymap.set("n", "<leader>fS", live_grep_fuzzy_with_input, { desc = "Find string in cwd (fuzzy search)" })
     -- keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>fc", function()
       local word = vim.fn.expand("<cWORD>")
@@ -69,6 +75,12 @@ return {
         live_grep_with_input(word)
       end
     end, { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>fC", function()
+      local word = vim.fn.expand("<cWORD>")
+      if word ~= "" then
+        live_grep_fuzzy_with_input(word)
+      end
+    end, { desc = "Find string under cursor in cwd (fuzzy search)" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     keymap.set("n", "<leader>/", function()
       require("telescope.builtin").current_buffer_fuzzy_find({
