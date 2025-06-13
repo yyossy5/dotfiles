@@ -43,6 +43,23 @@ return {
             height = 0.8,
             preview_width = 0.45,
           },
+          path_display = { "absolute" },
+          entry_maker = function(entry)
+            local filename = entry.filename
+            local lnum = entry.lnum
+            local col = entry.col
+            local text = entry.text
+
+            return {
+              value = entry,
+              display = filename,
+              ordinal = filename .. " " .. text,
+              filename = filename,
+              lnum = lnum,
+              col = col,
+              text = text,
+            }
+          end,
         },
       },
     })
