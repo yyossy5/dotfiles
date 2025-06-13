@@ -91,60 +91,6 @@ return {
 
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
-
-        -- Java specific keymaps
-        if vim.bo.filetype == "java" then
-          opts.desc = "Organize imports"
-          keymap.set("n", "<leader>jo", function()
-            vim.lsp.buf.code_action({
-              context = { only = { "source.organizeImports" } },
-              apply = true,
-            })
-          end, opts)
-
-          opts.desc = "Add missing imports (show all available imports)"
-          keymap.set("n", "<leader>ji", function()
-            -- Get all available code actions for import resolution
-            vim.lsp.buf.code_action({
-              filter = function(action)
-                return action.kind
-                  and (
-                    string.match(action.kind, "quickfix")
-                    or string.match(action.kind, "source")
-                    or string.match(action.title, "[Ii]mport")
-                  )
-              end,
-            })
-          end, opts)
-
-          opts.desc = "Auto import under cursor"
-          keymap.set("n", "<leader>jI", function()
-            local params = vim.lsp.util.make_range_params()
-            params.context = { only = { "source.organizeImports", "quickfix" } }
-
-            vim.lsp.buf_request(0, "textDocument/codeAction", params, function(err, result, ctx, config)
-              if err then
-                vim.notify("Error getting code actions: " .. err.message, vim.log.levels.ERROR)
-                return
-              end
-
-              if not result or vim.tbl_isempty(result) then
-                vim.notify("No import actions available", vim.log.levels.INFO)
-                return
-              end
-
-              -- Apply the first import-related action
-              for _, action in ipairs(result) do
-                if action.title and string.match(action.title, "[Ii]mport") then
-                  vim.lsp.buf.execute_command(action.command or action)
-                  return
-                end
-              end
-
-              vim.notify("No import actions found", vim.log.levels.INFO)
-            end)
-          end, opts)
-        end
       end,
     })
 
