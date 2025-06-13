@@ -4,21 +4,21 @@ return {
 
   -- Explicit dependencies (lazy.nvim will install & load these first)
   dependencies = {
-    "williamboman/mason.nvim",              -- LSP/DAP/Linter installer UI
-    "williamboman/mason-lspconfig.nvim",    -- mason ↔ nvim-lspconfig bridge (v2.x)
-    "hrsh7th/cmp-nvim-lsp",                 -- LSP completion capabilities
+    "williamboman/mason.nvim", -- LSP/DAP/Linter installer UI
+    "williamboman/mason-lspconfig.nvim", -- mason ↔ nvim-lspconfig bridge (v2.x)
+    "hrsh7th/cmp-nvim-lsp", -- LSP completion capabilities
     { "antosha417/nvim-lsp-file-operations", config = true }, -- auto-refresh on rename/move
-    { "folke/neodev.nvim", opts = {} },     -- better Lua LS for Neovim configs
+    { "folke/neodev.nvim", opts = {} }, -- better Lua LS for Neovim configs
   },
 
   config = function()
     ---------------------------------------------------------------------------
     -- Imports
     ---------------------------------------------------------------------------
-    local lspconfig        = require("lspconfig")
-    local mason_lspconfig  = require("mason-lspconfig")
-    local cmp_nvim_lsp     = require("cmp_nvim_lsp")
-    local keymap           = vim.keymap
+    local lspconfig = require("lspconfig")
+    local mason_lspconfig = require("mason-lspconfig")
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local keymap = vim.keymap
 
     ---------------------------------------------------------------------------
     -- Global LSP capabilities (used for every server)
@@ -91,6 +91,59 @@ return {
 
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+
+        -- Java specific keymaps
+        if vim.bo.filetype == "java" then
+          opts.desc = "Organize imports"
+          keymap.set("n", "<leader>jo", function()
+            vim.lsp.buf.code_action({
+              context = { only = { "source.organizeImports" } },
+              apply = true,
+            })
+          end, opts)
+
+          opts.desc = "Add missing imports (show all available imports)"
+          keymap.set("n", "<leader>ji", function()
+            -- Get all available code actions for import resolution
+            vim.lsp.buf.code_action({
+              filter = function(action)
+                return action.kind and (
+                  string.match(action.kind, "quickfix") or
+                  string.match(action.kind, "source") or
+                  string.match(action.title, "[Ii]mport")
+                )
+              end
+            })
+          end, opts)
+
+          opts.desc = "Auto import under cursor"
+          keymap.set("n", "<leader>jI", function()
+            local params = vim.lsp.util.make_range_params()
+            params.context = { only = { "source.organizeImports", "quickfix" } }
+            
+            vim.lsp.buf_request(0, "textDocument/codeAction", params, function(err, result, ctx, config)
+              if err then
+                vim.notify("Error getting code actions: " .. err.message, vim.log.levels.ERROR)
+                return
+              end
+              
+              if not result or vim.tbl_isempty(result) then
+                vim.notify("No import actions available", vim.log.levels.INFO)
+                return
+              end
+              
+              -- Apply the first import-related action
+              for _, action in ipairs(result) do
+                if action.title and string.match(action.title, "[Ii]mport") then
+                  vim.lsp.buf.execute_command(action.command or action)
+                  return
+                end
+              end
+              
+              vim.notify("No import actions found", vim.log.levels.INFO)
+            end)
+          end, opts)
+        end
       end,
     })
 
@@ -115,7 +168,7 @@ return {
             settings = {
               Lua = {
                 diagnostics = { globals = { "vim" } },
-                completion  = { callSnippet = "Replace" },
+                completion = { callSnippet = "Replace" },
               },
             },
           })
@@ -126,6 +179,76 @@ return {
             capabilities = capabilities,
             -- Use the nearest .git directory as root to resolve absolute imports
             root_dir = lspconfig.util.root_pattern(".git"),
+          })
+        end,
+
+        jdtls = function()
+          -- Prevent jdtls from being managed by lspconfig to avoid conflicts
+          -- with nvim-jdtls if installed
+          if vim.fn.executable("jdtls") == 0 then
+            return
+          end
+
+          lspconfig.jdtls.setup({
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+              -- Disable semantic tokens for jdtls to avoid conflicts
+              client.server_capabilities.semanticTokensProvider = nil
+            end,
+            settings = {
+              java = {
+                codeGeneration = {
+                  toString = {
+                    template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+                  },
+                  useBlocks = true,
+                },
+                configuration = {
+                  runtimes = {},
+                },
+                completion = {
+                  favoriteStaticMembers = {
+                    "org.hamcrest.MatcherAssert.assertThat",
+                    "org.hamcrest.Matchers.*",
+                    "org.hamcrest.CoreMatchers.*",
+                    "org.junit.jupiter.api.Assertions.*",
+                    "java.util.Objects.requireNonNull",
+                    "java.util.Objects.requireNonNullElse",
+                    "org.mockito.Mockito.*",
+                  },
+                  importOrder = {
+                    "java",
+                    "javax",
+                    "com",
+                    "org",
+                  },
+                },
+                contentProvider = { preferred = "fernflower" },
+                eclipse = { downloadSources = true },
+                format = {
+                  enabled = true,
+                  settings = {
+                    url = vim.fn.stdpath("config") .. "/lang-servers/intellij-java-google-style.xml",
+                    profile = "GoogleStyle",
+                  },
+                },
+                implementationsCodeLens = { enabled = true },
+                inlayHints = { parameterNames = { enabled = "all" } },
+                maven = { downloadSources = true },
+                referencesCodeLens = { enabled = true },
+                references = { includeDecompiledSources = true },
+                saveActions = {
+                  organizeImports = true,
+                },
+                signatureHelp = { enabled = true },
+                sources = {
+                  organizeImports = {
+                    starThreshold = 9999,
+                    staticStarThreshold = 9999,
+                  },
+                },
+              },
+            },
           })
         end,
 
@@ -153,4 +276,3 @@ return {
     })
   end,
 }
-
