@@ -192,6 +192,35 @@ return {
 
           lspconfig.jdtls.setup({
             capabilities = capabilities,
+            root_dir = function(fname)
+              -- 親のpom.xml（modulesを含む）を探す
+              local util = lspconfig.util
+              local function find_parent_pom(path)
+                local current = path
+                while current ~= "/" do
+                  local pom_path = current .. "/pom.xml"
+                  if vim.fn.filereadable(pom_path) == 1 then
+                    -- pom.xmlの内容を確認して<modules>があるかチェック
+                    local content = vim.fn.readfile(pom_path)
+                    for _, line in ipairs(content) do
+                      if string.match(line, "<modules>") or string.match(line, "<module>") then
+                        return current
+                      end
+                    end
+                  end
+                  current = vim.fn.fnamemodify(current, ":h")
+                end
+                return nil
+              end
+
+              local parent_root = find_parent_pom(vim.fn.fnamemodify(fname, ":h"))
+              if parent_root then
+                return parent_root
+              end
+
+              -- fallback
+              return util.find_git_ancestor(fname) or util.root_pattern("pom.xml")(fname)
+            end,
             on_attach = function(client, bufnr)
               -- Disable semantic tokens for jdtls to avoid conflicts
               client.server_capabilities.semanticTokensProvider = nil
