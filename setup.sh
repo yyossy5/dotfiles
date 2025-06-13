@@ -136,9 +136,14 @@ install_claude() {
   backup_and_link "$HOME/.claude" "$DOTFILES_DIR/claude"
 }
 
+install_intellij() {
+  log "Setting up IntelliJ IDEA config..."
+  backup_and_link "$HOME/.ideavimrc" "$DOTFILES_DIR/intellij/.ideavimrc"
+}
+
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|intellij]"
     exit 1
   fi
 
@@ -155,6 +160,7 @@ main() {
       install_iterm2
       install_nvim
       install_claude
+      install_intellij
       ;;
     zsh) install_zsh ;;
     nvim) install_nvim ;;
@@ -168,6 +174,7 @@ main() {
     gitconfig) install_gitconfig ;;
     iterm2) install_iterm2 ;;
     claude) install_claude ;;
+    intellij) install_intellij ;;
     *)
       echo "Unknown option: $arg"
       exit 1
