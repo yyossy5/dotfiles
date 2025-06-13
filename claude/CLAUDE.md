@@ -12,9 +12,11 @@
 - 開発環境変数
 - セッション履歴とTODO管理
 
-## 一般
+## 全般
 
 - 常に日本語で会話すること
+- 横に長過ぎるコメントやMarkdown文書は避ける。大体1行88文字くらいを目安とする
+- プロジェクトで採用しているツールが既にあるのであれば、ここで使用を推薦しているツールより優先すること
 
 ## 🧠 プロアクティブAIアシスタント
 
@@ -183,10 +185,138 @@ def function_name(param: ParamType) -> ReturnType:
 
 ### ベストプラクティス
 
-- **仮想環境**: 常にvenvまたはuvを使用
-- **依存関係**: requirementsでバージョンを固定
+- **仮想環境**: 常にuvを使用
+- **依存関係**: uvで管理
 - **テスト**: フィクスチャ付きpytestを使用
 - **型絞り込み**: OptionalのNull明示的チェック
+
+## ☕ Java開発
+
+### 核となるルール
+
+- **パッケージマネージャー**: Maven > Gradle（プロジェクトによる）
+- **型安全性**: 常にGenericsを使用、raw typesを避ける
+- **例外処理**: checked exceptionsを適切に処理、RuntimeExceptionは慎重に使用
+- **メモリ管理**: try-with-resourcesを使用、明示的なclose()は避ける
+- **不変性 (Immutability)**: 副作用を減らすため、可能な限り不変なオブジェクトを設計する
+- **null安全**: NullPointerExceptionを避けるため、nullの代わりにOptionalを使用する
+- **コレクション操作**: 基本的にはforループよりStream APIを優先し、宣言的なデータ処理を行う
+- **データ構造の選択**: アクセスパターンを考慮し、最適なコレクションを選択する
+
+### コード品質ツール
+
+```bash
+# コードフォーマット（Maven）
+mvn spotless:apply
+
+# コードフォーマット（Gradle）
+./gradlew spotlessApply
+
+# 静的解析
+mvn spotbugs:check
+./gradlew spotbugsMain
+
+# テスト実行（Maven）
+mvn test jacoco:report
+
+# テスト実行（Gradle）
+./gradlew test jacocoTestReport
+
+# 依存関係脆弱性チェック
+mvn org.owasp:dependency-check-maven:check
+./gradlew dependencyCheckAnalyze
+```
+
+### ドキュメントテンプレート（Java）
+
+```java
+/**
+ * メソッドの簡潔な説明。
+ *
+ * <p>メソッドが何をするか、なぜそうするかの詳細な説明。
+ * ビジネスロジックと実装の理由を含める。</p>
+ *
+ * @param param パラメータとその目的の説明
+ * @return 何が返されるかとその構造の説明
+ * @throws IllegalArgumentException パラメータが無効な場合
+ * @throws IOException ファイル操作でエラーが発生した場合
+ * @since 1.0.0
+ * @see #relatedMethod(String) 関連するメソッドについて
+ *
+ * @example
+ * <pre>{@code
+ * // 使用例
+ * String result = methodName("input");
+ * System.out.println(result); // 期待される出力
+ * }</pre>
+ */
+public String methodName(String param) throws IOException {
+    // 実装
+}
+```
+
+### ベストプラクティス
+
+- **Null安全性**: Optional<T>を使用、nullチェックを明示的に
+- **不変性**: finalキーワードを積極的に使用
+- **ストリームAPI**: ループよりもStream APIを優先
+- **ファクトリメソッド**: コンストラクタよりも静的ファクトリメソッドを優先
+
+### 一般的なパターン
+
+```java
+// エラーハンドリングパターン
+public class ServiceException extends Exception {
+    public ServiceException(String message) {
+        super(message);
+    }
+
+    public ServiceException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+
+// Builderパターン
+public class Config {
+    private final int port;
+    private final String host;
+
+    private Config(Builder builder) {
+        this.port = builder.port;
+        this.host = builder.host;
+    }
+
+    public static class Builder {
+        private int port = 8080;
+        private String host = "localhost";
+
+        public Builder port(int port) {
+            this.port = port;
+            return this;
+        }
+
+        public Builder host(String host) {
+            this.host = Objects.requireNonNull(host);
+            return this;
+        }
+
+        public Config build() {
+            return new Config(this);
+        }
+    }
+}
+
+// Optional使用パターン
+public Optional<User> findUserById(Long id) {
+    return userRepository.findById(id);
+}
+
+public String getUserName(Long id) {
+    return findUserById(id)
+        .map(User::getName)
+        .orElse("Unknown");
+}
+```
 
 ## 🐹 Go開発
 
@@ -676,4 +806,3 @@ git commit --trailer "Github-Issue: #123"
 覚えておいてください：
 **エンジニアの時間は節約すること** - すべてを自動化し、包括的にドキュメント化し、プロアクティブに改善を提案します。
 すべてのやり取りは時間を節約し、コード品質を向上させる必要があります。
-
