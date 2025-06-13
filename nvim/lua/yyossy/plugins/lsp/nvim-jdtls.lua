@@ -3,12 +3,12 @@ return {
   ft = "java",
   config = function()
     local jdtls = require("jdtls")
-    
+
     -- マルチモジュールプロジェクトのルートディレクトリを見つける関数
     local function get_project_root()
       local markers = { "pom.xml", "build.gradle", "settings.gradle", ".git" }
       local current_dir = vim.fn.expand("%:p:h")
-      
+
       -- 親pom.xml（modulesを含む）を優先的に探す
       local function find_parent_pom(path)
         local current = path
@@ -26,23 +26,24 @@ return {
         end
         return nil
       end
-      
+
       local parent_root = find_parent_pom(current_dir)
       if parent_root then
         return parent_root
       end
-      
+
       -- fallback: 通常のマーカーファイルを探す
       return vim.fs.dirname(vim.fs.find(markers, { upward = true })[1]) or vim.fn.getcwd()
     end
-    
+
     local project_root = get_project_root()
     local workspace_dir = vim.fn.stdpath("data") .. "/jdtls-workspace/" .. vim.fn.fnamemodify(project_root, ":t")
-    
+
     local config = {
       cmd = {
         "jdtls",
-        "-data", workspace_dir,
+        "-data",
+        workspace_dir,
       },
       root_dir = project_root,
       settings = {
@@ -92,46 +93,12 @@ return {
         },
       },
       on_attach = function(client, bufnr)
-        -- LSP keymaps
+        -- 共通のLSPキーマップを設定
+        require("yyossy.lsp_keymaps").setup_lsp_keymaps(bufnr)
+
+        -- Java固有のキーマップ
         local opts = { buffer = bufnr, silent = true }
-        
-        opts.desc = "Show LSP references"
-        vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
-        
-        opts.desc = "Go to declaration"
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        
-        opts.desc = "Show LSP definitions"
-        vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-        
-        opts.desc = "Show LSP implementations"
-        vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-        
-        opts.desc = "Show LSP type definitions"
-        vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-        
-        opts.desc = "See available code actions"
-        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-        
-        opts.desc = "Smart rename"
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        
-        opts.desc = "Show buffer diagnostics"
-        vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-        
-        opts.desc = "Go to previous diagnostic"
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-        
-        opts.desc = "Go to next diagnostic"
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-        
-        opts.desc = "Hover documentation"
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        
-        opts.desc = "Restart LSP"
-        vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
-        
-        -- Java specific keymaps
+
         opts.desc = "Organize imports"
         vim.keymap.set("n", "<leader>jo", function()
           vim.lsp.buf.code_action({
@@ -139,23 +106,25 @@ return {
             apply = true,
           })
         end, opts)
-        
+
         opts.desc = "Add missing imports"
         vim.keymap.set("n", "<leader>ji", function()
           vim.lsp.buf.code_action({
             filter = function(action)
-              return action.kind and (
-                string.match(action.kind, "quickfix") or
-                string.match(action.kind, "source") or
-                string.match(action.title, "[Ii]mport")
-              )
+              return action.kind
+                and (
+                  string.match(action.kind, "quickfix")
+                  or string.match(action.kind, "source")
+                  or string.match(action.title, "[Ii]mport")
+                )
             end,
           })
         end, opts)
       end,
       capabilities = require("cmp_nvim_lsp").default_capabilities(),
     }
-    
+
     jdtls.start_or_attach(config)
   end,
 }
+
