@@ -1,8 +1,8 @@
-.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude
+.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude intellij
 
 TIMESTAMP := $(shell date +%Y%m%d-%H%M%S)
 
-all: brew zsh nvim tmux lazygit aqua gitconfig iterm2 claude ## Run all setup tasks
+all: brew zsh nvim tmux lazygit aqua gitconfig iterm2 claude intellij ## Run all setup tasks
 
 brew: ## Install CLI tools via Homebrew
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh brew
@@ -30,6 +30,9 @@ nvim: zsh ## Setup Neovim config (~/.config/nvim)
 
 claude: ## Setup Claude config (~/.claude)
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh claude
+
+intellij: ## Setup IntelliJ IDEA config (.ideavimrc)
+	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh intellij
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-18s\033[0m %s\n", $$1, $$2}'

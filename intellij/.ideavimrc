@@ -1,0 +1,7 @@
+" ------ 自分の設定 ------
+" yank(コピー)した時にクリップボードに入るようにする
+set clipboard+=unnamed
+
+" jkでEsc
+inoremap <silent> jk <ESC>
+
