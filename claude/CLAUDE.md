@@ -318,6 +318,136 @@ public String getUserName(Long id) {
 }
 ```
 
+## ⚡ C++開発
+
+### 核となるルール
+
+- **ビルドシステム**: CMake > Bazel > Make（プロジェクトによる）
+- **メモリ管理**: スマートポインタ（unique_ptr、shared_ptr）を使用、rawポインタは避ける
+- **エラーハンドリング**: 例外よりもstd::optionalやstd::expected（C++23）を優先
+- **STLコンテナ**: 適切なコンテナを選択（vector、unordered_map等）
+- **C++標準**: 最新の安定版を使用（C++20以降推奨）
+
+### コード品質ツール
+
+```bash
+# コードフォーマット
+clang-format -i src/*.cpp include/*.h
+
+# 静的解析
+clang-tidy src/*.cpp -- -Iinclude
+
+# メモリリーク検出
+valgrind --leak-check=full ./your_program
+
+# ビルド（CMake）
+cmake -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
+
+# テスト実行
+ctest --test-dir build --output-on-failure
+
+# カバレッジ（gcov/llvm-cov）
+gcov src/*.cpp
+```
+
+### ドキュメントテンプレート（C++）
+
+```cpp
+/**
+ * @brief 関数の簡潔な説明
+ *
+ * 関数が何をするか、なぜそうするかの詳細な説明。
+ * ビジネスロジックと実装の理由を含める。
+ *
+ * @param param パラメータとその目的の説明
+ * @return 何が返されるかとその構造の説明
+ * @throws std::invalid_argument パラメータが無効な場合
+ * @throws std::runtime_error 実行時エラーが発生した場合
+ * @since 1.0.0
+ * @see related_function() 関連する関数について
+ *
+ * @code
+ * // 使用例
+ * auto result = function_name("input");
+ * if (result) {
+ *     std::cout << *result << std::endl;
+ * }
+ * @endcode
+ */
+std::optional<std::string> function_name(const std::string& param) {
+    // 実装
+}
+```
+
+### ベストプラクティス
+
+- **RAII**: リソース取得は初期化時、スコープ終了で自動解放
+- **const正確性**: 可能な限りconstを使用
+- **移動セマンティクス**: std::moveを適切に使用
+- **範囲for**: 従来のforループより範囲forを優先
+
+### 一般的なパターン
+
+```cpp
+// スマートポインタパターン
+class Resource {
+public:
+    Resource(const std::string& name) : name_(name) {
+        std::cout << "Resource " << name_ << " created\n";
+    }
+
+    ~Resource() {
+        std::cout << "Resource " << name_ << " destroyed\n";
+    }
+
+private:
+    std::string name_;
+};
+
+// unique_ptr使用
+auto resource = std::make_unique<Resource>("unique");
+
+// shared_ptr使用
+auto shared_resource = std::make_shared<Resource>("shared");
+
+// エラーハンドリングパターン
+std::optional<int> safe_divide(int a, int b) {
+    if (b == 0) {
+        return std::nullopt;
+    }
+    return a / b;
+}
+
+// 使用例
+auto result = safe_divide(10, 2);
+if (result.has_value()) {
+    std::cout << "Result: " << result.value() << std::endl;
+}
+
+// RAII + move semanticsパターン
+class FileHandler {
+private:
+    std::unique_ptr<std::FILE, decltype(&std::fclose)> file_;
+
+public:
+    explicit FileHandler(const std::string& filename)
+        : file_(std::fopen(filename.c_str(), "r"), &std::fclose) {
+        if (!file_) {
+            throw std::runtime_error("Failed to open file: " + filename);
+        }
+    }
+
+    // moveコンストラクタ
+    FileHandler(FileHandler&& other) noexcept = default;
+    FileHandler& operator=(FileHandler&& other) noexcept = default;
+
+    // コピーは禁止
+    FileHandler(const FileHandler&) = delete;
+    FileHandler& operator=(const FileHandler&) = delete;
+};
+```
+
 ## 🐹 Go開発
 
 ### 核となるルール
