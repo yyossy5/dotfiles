@@ -38,7 +38,6 @@ return {
         -- "groovyls",
         "html",
         "jdtls", -- java
-        "jinja_lsp",
         "jsonls",
         "lua_ls",
         -- "ltex", -- reStructuredText

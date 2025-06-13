@@ -21,7 +21,9 @@ return {
         -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#autoformat-with-extra-features
         local ignore_filetypes = {
           "java",
+          "json",
           "yaml",
+          "python",
         }
         if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
           return
@@ -47,5 +49,19 @@ return {
         timeout_ms = 1000,
       })
     end, { desc = "Format file or range (in visual mode)" })
+
+    -- Toggle autoformat globally
+    vim.keymap.set("n", "<leader>tf", function()
+      vim.g.disable_autoformat = not vim.g.disable_autoformat
+      local status = vim.g.disable_autoformat and "disabled" or "enabled"
+      vim.notify("Autoformat " .. status, vim.log.levels.INFO)
+    end, { desc = "Toggle autoformat globally" })
+
+    -- Toggle autoformat for current buffer
+    vim.keymap.set("n", "<leader>tF", function()
+      vim.b.disable_autoformat = not vim.b.disable_autoformat
+      local status = vim.b.disable_autoformat and "disabled" or "enabled"
+      vim.notify("Autoformat " .. status .. " for current buffer", vim.log.levels.INFO)
+    end, { desc = "Toggle autoformat for current buffer" })
   end,
 }
