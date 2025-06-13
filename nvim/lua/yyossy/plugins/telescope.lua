@@ -37,6 +37,13 @@ return {
             return { "--hidden" }
           end,
         },
+        lsp_references = {
+          layout_config = {
+            width = 0.9,
+            height = 0.8,
+            preview_width = 0.45,
+          },
+        },
       },
     })
 
