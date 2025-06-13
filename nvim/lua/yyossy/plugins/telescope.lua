@@ -15,7 +15,7 @@ return {
       defaults = {
         file_ignore_patterns = { "%.git/" }, -- exclude .git directory
         find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" }, -- exclude .git directory
-        path_display = { "smart" },
+        path_display = { "absolute" },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
