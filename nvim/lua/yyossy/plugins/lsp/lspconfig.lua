@@ -193,33 +193,45 @@ return {
           lspconfig.jdtls.setup({
             capabilities = capabilities,
             root_dir = function(fname)
+              -- デバッグ用のログ
+              print("JDTLS root_dir called for file: " .. fname)
+
               -- 親のpom.xml（modulesを含む）を探す
               local util = lspconfig.util
               local function find_parent_pom(path)
                 local current = path
+                print("Searching for parent pom from: " .. current)
                 while current ~= "/" do
                   local pom_path = current .. "/pom.xml"
+                  print("Checking: " .. pom_path)
                   if vim.fn.filereadable(pom_path) == 1 then
+                    print("Found pom.xml at: " .. pom_path)
                     -- pom.xmlの内容を確認して<modules>があるかチェック
                     local content = vim.fn.readfile(pom_path)
                     for _, line in ipairs(content) do
                       if string.match(line, "<modules>") or string.match(line, "<module>") then
+                        print("Found parent pom with modules at: " .. current)
                         return current
                       end
                     end
+                    print("pom.xml found but no modules tag")
                   end
                   current = vim.fn.fnamemodify(current, ":h")
                 end
+                print("No parent pom found")
                 return nil
               end
 
               local parent_root = find_parent_pom(vim.fn.fnamemodify(fname, ":h"))
               if parent_root then
+                print("Using parent root: " .. parent_root)
                 return parent_root
               end
 
               -- fallback
-              return util.find_git_ancestor(fname) or util.root_pattern("pom.xml")(fname)
+              local fallback_root = util.find_git_ancestor(fname) or util.root_pattern("pom.xml")(fname)
+              print("Using fallback root: " .. (fallback_root or "nil"))
+              return fallback_root
             end,
             on_attach = function(client, bufnr)
               -- Disable semantic tokens for jdtls to avoid conflicts
