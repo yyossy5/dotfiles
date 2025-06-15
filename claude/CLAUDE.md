@@ -920,7 +920,7 @@ func wrapErr(err error, msg string) error {
 
 ## 🔧 コミット標準
 
-### 従来のコミット
+### Conventional Commits
 
 ```bash
 # フォーマット: <type>(<scope>): <subject>
@@ -941,12 +941,15 @@ git commit --trailer "Reported-by: John Doe"
 git commit --trailer "Github-Issue: #123"
 ```
 
-### PRガイドライン
+### コミットその他
 
-- 高レベルの問題と解決策に焦点を当てる
-- 使用したツールには言及しない（co-authored-byなし）
-- 設定された特定のレビュアーを追加
-- 関連する場合はパフォーマンスへの影響を含める
+以下のような使用ツールに関する文言はコミットメッセージには不要。
+
+```bash
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
 
 ---
 
