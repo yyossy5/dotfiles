@@ -95,6 +95,7 @@ font-hack-nerd-font
 gcc
 git
 git-delta
+gh
 lua
 neovim
 node
