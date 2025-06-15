@@ -141,9 +141,21 @@ install_intellij() {
   backup_and_link "$HOME/.ideavimrc" "$DOTFILES_DIR/intellij/.ideavimrc"
 }
 
+install_npm_global() {
+  log "Installing npm global packages..."
+  while read -r pkg; do
+    if ! npm list -g "$pkg" &>/dev/null; then
+      log "Installing $pkg globally via npm"
+      npm install -g "$pkg" 2>&1 | tee -a "$LOG_FILE"
+    else
+      log "$pkg already installed globally, skipping"
+    fi
+  done <"$DOTFILES_DIR/npm/packages.txt"
+}
+
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|intellij]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|intellij|npm]"
     exit 1
   fi
 
@@ -155,6 +167,7 @@ main() {
       install_zsh
       install_tmux
       install_aqua
+      install_npm_global
       install_gitconfig
       install_lazygit
       install_iterm2
@@ -175,6 +188,7 @@ main() {
     iterm2) install_iterm2 ;;
     claude) install_claude ;;
     intellij) install_intellij ;;
+    npm) install_npm_global ;;
     *)
       echo "Unknown option: $arg"
       exit 1
