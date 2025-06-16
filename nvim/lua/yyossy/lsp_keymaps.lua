@@ -27,6 +27,9 @@ function M.setup_lsp_keymaps(bufnr)
   opts.desc = "Smart rename"
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
+  opts.desc = "Show line diagnostics"
+  vim.keymap.set("n", "<leader>b", vim.diagnostic.open_float, opts)
+
   opts.desc = "Show buffer diagnostics"
   vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
@@ -44,4 +47,3 @@ function M.setup_lsp_keymaps(bufnr)
 end
 
 return M
-
