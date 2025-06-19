@@ -154,9 +154,14 @@ install_npm_global() {
   done <"$DOTFILES_DIR/npm/packages.txt"
 }
 
+install_obsidian() {
+  log "Setting up Obsidian vimrc config..."
+  backup_and_link "$HOME/.obsidian.vimrc" "$DOTFILES_DIR/obsidian/.obsidian.vimrc"
+}
+
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|intellij|npm]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|intellij|npm|obsidian]"
     exit 1
   fi
 
@@ -175,6 +180,7 @@ main() {
       install_nvim
       install_claude
       install_intellij
+      install_obsidian
       ;;
     zsh) install_zsh ;;
     nvim) install_nvim ;;
@@ -190,6 +196,7 @@ main() {
     claude) install_claude ;;
     intellij) install_intellij ;;
     npm) install_npm_global ;;
+    obsidian) install_obsidian ;;
     *)
       echo "Unknown option: $arg"
       exit 1
