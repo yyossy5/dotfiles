@@ -156,13 +156,13 @@ install_npm_global() {
 
 install_obsidian() {
   log "Setting up Obsidian vimrc config..."
-  local obsidian_dir="$HOME/Project/myobs/.obsidian"
-  
+  local obsidian_dir="$HOME/Projects/myobs/.obsidian"
+
   if [ ! -d "$obsidian_dir" ]; then
     log "Obsidian directory $obsidian_dir not found, skipping"
     return 0
   fi
-  
+
   backup_and_link "$obsidian_dir/.obsidian.vimrc" "$DOTFILES_DIR/obsidian/.obsidian.vimrc"
 }
 
