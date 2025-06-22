@@ -64,6 +64,10 @@ return {
       handlers = {
         -- Default handler (executes for *every* installed server)
         function(server_name)
+          -- jdtlsはnvim-jdtlsプラグインで管理するため除外
+          if server_name == "jdtls" then
+            return
+          end
           lspconfig[server_name].setup({
             capabilities = capabilities,
           })

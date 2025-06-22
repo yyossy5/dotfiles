@@ -2,6 +2,13 @@ return {
   "mfussenegger/nvim-jdtls",
   ft = "java",
   config = function()
+    -- 既存のJDTLSクライアントが存在する場合は起動しない
+    local existing_clients = vim.lsp.get_clients({ name = "jdtls" })
+    if #existing_clients > 0 then
+      vim.notify("JDTLS already running, skipping duplicate startup", vim.log.levels.WARN)
+      return
+    end
+
     local jdtls_setup = require("jdtls.setup")
 
     -- マルチモジュールプロジェクトのルートディレクトリを見つける関数
