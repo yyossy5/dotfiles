@@ -63,6 +63,7 @@ return {
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
+        "-Declipse.log.level=ALL",
         "-Xmx1g",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
@@ -84,8 +85,10 @@ return {
               {
                 name = "JavaSE-21",
                 path = get_java_home(),
+                default = true,
               },
             },
+            updateBuildConfiguration = "automatic",
           },
           import = {
             gradle = {
@@ -137,6 +140,14 @@ return {
               staticStarThreshold = 9999,
             },
           },
+          contentProvider = { preferred = "fernflower" },
+          compile = { nullAnalysis = { mode = "automatic" } },
+          project = {
+            referencedLibraries = {
+              "lib/**/*.jar",
+              "**/*.jar",
+            },
+          },
         },
       },
       init_options = {
@@ -144,6 +155,11 @@ return {
         extendedClientCapabilities = jdtls_setup.extendedClientCapabilities,
       },
       on_attach = function(client, bufnr)
+        -- JDTLSのステータス情報を出力
+        vim.notify(string.format("JDTLS attached to buffer %d", bufnr), vim.log.levels.INFO)
+        vim.notify(string.format("Project root: %s", project_root), vim.log.levels.INFO)
+        vim.notify(string.format("Workspace dir: %s", workspace_dir), vim.log.levels.INFO)
+
         -- LSPが完全に準備できるまで待つ
         vim.defer_fn(function()
           -- 共通のLSPキーマップを設定
@@ -173,6 +189,51 @@ return {
                 )
             end,
           })
+        end, opts)
+
+        -- JDTLSデバッグ情報表示
+        opts.desc = "JDTLS debug info"
+        vim.keymap.set("n", "<leader>jd", function()
+          -- プロジェクト情報
+          vim.notify("=== JDTLS Debug Info ===", vim.log.levels.INFO)
+          vim.notify("Project root: " .. (project_root or "unknown"), vim.log.levels.INFO)
+          vim.notify("Workspace dir: " .. (workspace_dir or "unknown"), vim.log.levels.INFO)
+          vim.notify("Current file: " .. vim.fn.expand("%:p"), vim.log.levels.INFO)
+
+          -- LSPクライアント情報
+          local clients = vim.lsp.get_clients({ bufnr = bufnr })
+          for _, c in ipairs(clients) do
+            if c.name == "jdtls" then
+              vim.notify("JDTLS client ID: " .. c.id, vim.log.levels.INFO)
+              vim.notify("JDTLS status: " .. (c.is_stopped() and "stopped" or "running"), vim.log.levels.INFO)
+            end
+          end
+
+          -- プロジェクトの状態確認
+          local status_ok, status = pcall(function()
+            return vim.lsp.buf_request_sync(bufnr, "workspace/executeCommand", {
+              command = "java.project.getAll",
+            }, 2000)
+          end)
+
+          if status_ok and status then
+            vim.notify("Project status: OK", vim.log.levels.INFO)
+          else
+            vim.notify("Project status: ERROR - " .. tostring(status), vim.log.levels.WARN)
+          end
+        end, opts)
+
+        -- プロジェクトの再読み込み
+        opts.desc = "Reload JDTLS project"
+        vim.keymap.set("n", "<leader>jr", function()
+          vim.lsp.buf.execute_command({
+            command = "java.clean.workspace",
+          })
+          vim.notify("JDTLS workspace cleaning...", vim.log.levels.INFO)
+          vim.defer_fn(function()
+            vim.cmd("LspRestart")
+            vim.notify("JDTLS restarted", vim.log.levels.INFO)
+          end, 2000)
         end, opts)
       end,
       capabilities = require("cmp_nvim_lsp").default_capabilities(),
