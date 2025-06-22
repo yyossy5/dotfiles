@@ -4,18 +4,45 @@ return {
   config = function()
     local jdtls_setup = require("jdtls.setup")
 
-    local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
-    local root_dir = jdtls_setup.find_root(root_markers)
-    if not root_dir then
-      return
+    -- マルチモジュールプロジェクトのルートディレクトリを見つける関数
+    local function get_project_root()
+      local markers = { "pom.xml", "build.gradle", "settings.gradle", ".git" }
+      local current_dir = vim.fn.expand("%:p:h")
+
+      -- 親pom.xml（modulesを含む）を優先的に探す
+      local function find_parent_pom(path)
+        local current = path
+        while current ~= "/" do
+          local pom_path = current .. "/pom.xml"
+          if vim.fn.filereadable(pom_path) == 1 then
+            local content = vim.fn.readfile(pom_path)
+            for _, line in ipairs(content) do
+              if string.match(line, "<modules>") or string.match(line, "<module>") then
+                return current
+              end
+            end
+          end
+          current = vim.fn.fnamemodify(current, ":h")
+        end
+        return nil
+      end
+
+      local parent_root = find_parent_pom(current_dir)
+      if parent_root then
+        return parent_root
+      end
+
+      -- fallback: 通常のマーカーファイルを探す
+      return vim.fs.dirname(vim.fs.find(markers, { upward = true })[1]) or vim.fn.getcwd()
     end
+
+    local project_root = get_project_root()
+    local workspace_dir = vim.fn.stdpath("data") .. "/jdtls-workspace/" .. vim.fn.fnamemodify(project_root, ":t")
 
     local home = os.getenv("HOME")
     local jdtls_path = home .. "/.local/share/nvim/mason/packages/jdtls"
     local config_dir = jdtls_path .. "/config_mac" -- if you use linux /config_linux
     local launcher_path = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
-    local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
-    local workspace_dir = home .. "/.cache/jdtls/workspace/" .. project_name
 
     function get_java_home()
       local handle = io.popen("/usr/libexec/java_home -v 21")
@@ -49,7 +76,7 @@ return {
         "-data",
         workspace_dir,
       },
-      root_dir = root_dir,
+      root_dir = project_root,
       settings = {
         java = {
           configuration = {
