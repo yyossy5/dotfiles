@@ -21,11 +21,17 @@ return {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            -- ["<C-q>"] = actions.close, -- <C-q> to close Telescope
+            ["<C-d>"] = actions.results_scrolling_down, -- scroll results down
+            ["<C-u>"] = actions.results_scrolling_up, -- scroll results up
+            ["<C-f>"] = actions.preview_scrolling_down, -- scroll preview down
+            ["<C-b>"] = actions.preview_scrolling_up, -- scroll preview up
           },
-          -- n = {
-          --   ["<C-q>"] = actions.close, -- <C-q> to close Telescope in normal mode
-          -- },
+          n = {
+            ["<C-d>"] = actions.results_scrolling_down, -- scroll results down
+            ["<C-u>"] = actions.results_scrolling_up, -- scroll results up
+            ["<C-f>"] = actions.preview_scrolling_down, -- scroll preview down
+            ["<C-b>"] = actions.preview_scrolling_up, -- scroll preview up
+          },
         },
       },
       pickers = {
