@@ -70,13 +70,13 @@ return {
     local last_search_term = ""
 
     -- Custom function: prompt input with last used string
-    local function live_grep_with_input(text)
+    local function live_grep_with_input(text, opts)
       local input = text or vim.fn.input("Grep > ", last_search_term)
       if input == "" then
         return
       end
       last_search_term = input
-      require("telescope.builtin").live_grep(vim.tbl_extend("force", { default_text = input }, opts))
+      require("telescope.builtin").live_grep(vim.tbl_extend("force", { default_text = input }, opts or {}))
     end
 
     -- Custom function: prompt input with fuzzy search
