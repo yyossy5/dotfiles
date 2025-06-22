@@ -78,6 +78,12 @@ return {
         workspace_dir,
       },
       root_dir = project_root,
+      workspace_folders = {
+        {
+          uri = vim.uri_from_fname(project_root),
+          name = vim.fn.fnamemodify(project_root, ":t"),
+        },
+      },
       settings = {
         java = {
           configuration = {
@@ -160,11 +166,40 @@ return {
         vim.notify(string.format("Project root: %s", project_root), vim.log.levels.INFO)
         vim.notify(string.format("Workspace dir: %s", workspace_dir), vim.log.levels.INFO)
 
-        -- LSPが完全に準備できるまで待つ
-        vim.defer_fn(function()
-          -- 共通のLSPキーマップを設定
-          require("yyossy.lsp_keymaps").setup_lsp_keymaps(bufnr)
-        end, 100)
+        -- JDTLSのクライアントコマンドハンドラーを設定
+        client.handlers = client.handlers or {}
+        client.handlers["workspace/executeClientCommand"] = function(_, params, ctx)
+          if params.command == "java.reloadProjects" then
+            vim.notify("Reloading Java projects...", vim.log.levels.INFO)
+            vim.lsp.buf.execute_command({ command = "java.clean.workspace" })
+          elseif params.command == "java.apply.workspaceEdit" then
+            vim.lsp.util.apply_workspace_edit(params.arguments[1], client.offset_encoding)
+          else
+            vim.notify("Unknown client command: " .. (params.command or "nil"), vim.log.levels.WARN)
+          end
+        end
+
+        -- プロジェクト初期化完了を待つ
+        local function wait_for_project_ready()
+          vim.defer_fn(function()
+            local status_ok, status = pcall(function()
+              return vim.lsp.buf_request_sync(bufnr, "workspace/executeCommand", {
+                command = "java.project.getAll",
+              }, 3000)
+            end)
+            
+            if status_ok and status then
+              vim.notify("JDTLS project ready", vim.log.levels.INFO)
+              -- 共通のLSPキーマップを設定
+              require("yyossy.lsp_keymaps").setup_lsp_keymaps(bufnr)
+            else
+              vim.notify("JDTLS project not ready, retrying...", vim.log.levels.WARN)
+              wait_for_project_ready() -- 再試行
+            end
+          end, 2000)
+        end
+        
+        wait_for_project_ready()
 
         -- Java固有のキーマップ
         local opts = { buffer = bufnr, silent = true }
@@ -236,7 +271,30 @@ return {
           end, 2000)
         end, opts)
       end,
-      capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      capabilities = vim.tbl_deep_extend("force", 
+        require("cmp_nvim_lsp").default_capabilities(),
+        {
+          workspace = {
+            didChangeWorkspaceFolders = {
+              dynamicRegistration = false,
+            },
+            executeCommand = {
+              dynamicRegistration = false,
+            },
+          },
+          textDocument = {
+            definition = {
+              linkSupport = true,
+            },
+            implementation = {
+              linkSupport = true,
+            },
+            references = {
+              includeDeclaration = true,
+            },
+          },
+        }
+      ),
     }
 
     jdtls_setup.start_or_attach(config)
