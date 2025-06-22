@@ -6,6 +6,18 @@ local M = {}
 function M.setup_lsp_keymaps(bufnr)
   local opts = { buffer = bufnr, silent = true }
 
+  -- LSP接続確認
+  local clients = vim.lsp.get_clients({ bufnr = bufnr })
+  if #clients == 0 then
+    vim.notify("No LSP client attached to buffer", vim.log.levels.WARN)
+    return
+  end
+
+  -- ctagsキーマップを無効化してLSPを優先
+  vim.keymap.set("n", "<C-]>", function()
+    vim.lsp.buf.definition()
+  end, { buffer = bufnr, silent = true, desc = "Go to definition (LSP)" })
+
   opts.desc = "Show LSP references"
   vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
 
@@ -13,7 +25,15 @@ function M.setup_lsp_keymaps(bufnr)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
   opts.desc = "Show LSP definitions"
-  vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+  vim.keymap.set("n", "gd", function()
+    -- LSPサーバーが利用可能かチェック
+    local clients = vim.lsp.get_clients({ bufnr = bufnr })
+    if #clients > 0 then
+      vim.cmd("Telescope lsp_definitions")
+    else
+      vim.notify("LSP not available", vim.log.levels.WARN)
+    end
+  end, opts)
 
   opts.desc = "Show LSP implementations"
   vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
@@ -44,6 +64,19 @@ function M.setup_lsp_keymaps(bufnr)
 
   opts.desc = "Restart LSP"
   vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+
+  -- デバッグ用：LSP情報を表示
+  opts.desc = "Show LSP info"
+  vim.keymap.set("n", "<leader>li", function()
+    local clients = vim.lsp.get_clients({ bufnr = bufnr })
+    if #clients == 0 then
+      vim.notify("No LSP clients attached", vim.log.levels.INFO)
+    else
+      for _, client in ipairs(clients) do
+        vim.notify(string.format("LSP: %s (id: %d)", client.name, client.id), vim.log.levels.INFO)
+      end
+    end
+  end, opts)
 end
 
 return M

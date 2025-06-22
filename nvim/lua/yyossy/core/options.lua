@@ -58,6 +58,11 @@ opt.fillchars = {
 -- turn off swapfile
 opt.swapfile = false
 
+-- LSPを優先し、ctagsを無効化
+opt.tags = ""  -- tagsファイルを無効化
+vim.g.loaded_gtags = 1  -- gtagsプラグインを無効化
+vim.g.loaded_gtags_cscope = 1
+
 -- Automatically reload file when it changes outside of Neovim
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
   pattern = "*",

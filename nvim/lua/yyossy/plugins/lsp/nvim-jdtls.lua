@@ -144,8 +144,11 @@ return {
         extendedClientCapabilities = jdtls_setup.extendedClientCapabilities,
       },
       on_attach = function(client, bufnr)
-        -- 共通のLSPキーマップを設定
-        require("yyossy.lsp_keymaps").setup_lsp_keymaps(bufnr)
+        -- LSPが完全に準備できるまで待つ
+        vim.defer_fn(function()
+          -- 共通のLSPキーマップを設定
+          require("yyossy.lsp_keymaps").setup_lsp_keymaps(bufnr)
+        end, 100)
 
         -- Java固有のキーマップ
         local opts = { buffer = bufnr, silent = true }
