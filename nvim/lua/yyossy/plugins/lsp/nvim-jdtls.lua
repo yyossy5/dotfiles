@@ -2,7 +2,7 @@ return {
   "mfussenegger/nvim-jdtls",
   ft = "java",
   config = function()
-    local jdtls = require("jdtls")
+    local jdtls_setup = require("jdtls.setup")
 
     local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
     local root_dir = jdtls_setup.find_root(root_markers)
@@ -114,7 +114,7 @@ return {
       },
       init_options = {
         bundles = {},
-        extendedClientCapabilities = jdtls.extendedClientCapabilities,
+        extendedClientCapabilities = jdtls_setup.extendedClientCapabilities,
       },
       on_attach = function(client, bufnr)
         -- 共通のLSPキーマップを設定
@@ -148,6 +148,6 @@ return {
       capabilities = require("cmp_nvim_lsp").default_capabilities(),
     }
 
-    jdtls.start_or_attach(config)
+    jdtls_setup.start_or_attach(config)
   end,
 }
