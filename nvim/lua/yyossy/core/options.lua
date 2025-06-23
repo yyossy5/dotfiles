@@ -44,6 +44,17 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
+-- window separators
+opt.fillchars = {
+  vert = "▎", -- thick left block for vertical separator
+  horiz = "━", -- horizontal line for horizontal separator
+  horizup = "┻",
+  horizdown = "┳",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+}
+
 -- turn off swapfile
 opt.swapfile = false
 
@@ -62,4 +73,3 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 --     vim.opt_local.expandtab = false -- use actual tabs instead of spaces in Java files
 --   end,
 -- })
-
