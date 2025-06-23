@@ -16,6 +16,19 @@ return {
         file_ignore_patterns = { "%.git/" }, -- exclude .git directory
         find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" }, -- exclude .git directory
         path_display = { "absolute" },
+        layout_strategy = "horizontal",
+        layout_config = {
+          horizontal = {
+            width = 0.99, -- 画面幅の99%を使用してより広く
+            height = 0.90, -- 画面高さの90%を使用
+            preview_width = 0.4,
+            results_width = 0.6,
+          },
+        },
+        dynamic_preview_title = true, -- 動的プレビュータイトル
+        winblend = 0, -- 透明度設定（0=不透明）
+        border = true, -- ボーダーを表示
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
