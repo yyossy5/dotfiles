@@ -120,7 +120,11 @@ return {
         },
         palettes = {},
         specs = {},
-        groups = {},
+        groups = {
+          all = {
+            WinSeparator = { fg = "#EBEFFD" },
+          },
+        },
       })
 
       -- setup must be called before loading
