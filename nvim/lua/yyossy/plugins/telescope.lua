@@ -132,5 +132,9 @@ return {
         case_mode = "smart_case",
       })
     end, { desc = "Find in current buffer" })
+
+    -- Search and command history
+    keymap.set("n", "<leader>fh", "<cmd>Telescope search_history<cr>", { desc = "Telescope search history" })
+    keymap.set("n", "<leader>ch", "<cmd>Telescope command_history<cr>", { desc = "Telescope Command history" })
   end,
 }
