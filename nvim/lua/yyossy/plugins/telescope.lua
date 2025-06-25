@@ -134,7 +134,11 @@ return {
     end, { desc = "Find in current buffer" })
 
     -- Search and command history
-    keymap.set("n", "<leader>fh", "<cmd>Telescope search_history<cr>", { desc = "Telescope search history" })
-    keymap.set("n", "<leader>ch", "<cmd>Telescope command_history<cr>", { desc = "Telescope Command history" })
+    keymap.set("n", "<leader>fh", "<cmd>Telescope search_history<cr>", { desc = "Search history" })
+    keymap.set("n", "<leader>ch", "<cmd>Telescope command_history<cr>", { desc = "Command history" })
+
+    -- Git integration
+    keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Telescope: Git status" })
+    keymap.set("n", "<leader>gb", "<cmd>Telescope git_bcommits<cr>", { desc = "Telescope: Git buffer commits" })
   end,
 }
