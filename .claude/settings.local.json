@@ -1,8 +1,9 @@
 {
-  "enableAllProjectMcpServers": false,
   "permissions": {
     "allow": [
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(rg:*)"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": false
 }
