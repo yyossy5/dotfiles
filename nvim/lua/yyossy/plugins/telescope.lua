@@ -108,6 +108,7 @@ return {
 
     keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+    keymap.set("n", "<leader>fR", "<cmd>Telescope resume<cr>", { desc = "Telescope: resume" })
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     --keymap.set("n", "<leader>fs", live_grep_with_input, { desc = "Find string in cwd (persistent input)" })
     keymap.set("n", "<leader>fS", live_grep_fuzzy_with_input, { desc = "Find string in cwd (fuzzy search)" })
@@ -132,6 +133,8 @@ return {
         case_mode = "smart_case",
       })
     end, { desc = "Find in current buffer" })
+
+    keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<cr>", { desc = "Telescope: quickfix" })
 
     -- Search and command history
     keymap.set("n", "<leader>fh", "<cmd>Telescope search_history<cr>", { desc = "Search history" })
