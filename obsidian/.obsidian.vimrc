@@ -24,6 +24,18 @@ nmap <C-o> :back<CR>
 exmap forward obcommand app:go-forward
 nmap <C-i> :forward<CR>
 
+exmap focusRight obcommand editor:focus-right
+nmap <C-w>l :focusRight<CR>
+
+exmap focusLeft obcommand editor:focus-left
+nmap <C-w>h :focusLeft<CR>
+
+exmap focusTop obcommand editor:focus-top
+nmap <C-w>k :focusTop<CR>
+
+exmap focusBottom obcommand editor:focus-bottom
+nmap <C-w>j :focusBottom<CR>
+
 " ----- Range Error 対策 -----
 " https://github.com/esm7/obsidian-vimrc-support/issues/266
 " remove map to o
