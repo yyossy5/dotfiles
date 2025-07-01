@@ -137,6 +137,12 @@ install_claude() {
   backup_and_link "$HOME/.claude" "$DOTFILES_DIR/claude"
 }
 
+install_gemini() {
+  log "Setting up Gemini CLI config..."
+  mkdir -p "$HOME/.gemini"
+  backup_and_link "$HOME/.gemini/settings.json" "$DOTFILES_DIR/gemini/settings.json"
+}
+
 install_intellij() {
   log "Setting up IntelliJ IDEA config..."
   backup_and_link "$HOME/.ideavimrc" "$DOTFILES_DIR/intellij/.ideavimrc"
@@ -168,7 +174,7 @@ install_obsidian() {
 
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|intellij|npm|obsidian]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|intellij|npm|obsidian]"
     exit 1
   fi
 
@@ -186,6 +192,7 @@ main() {
       install_iterm2
       install_nvim
       install_claude
+      install_gemini
       install_intellij
       install_obsidian
       ;;
@@ -201,6 +208,7 @@ main() {
     gitconfig) install_gitconfig ;;
     iterm2) install_iterm2 ;;
     claude) install_claude ;;
+    gemini) install_gemini ;;
     intellij) install_intellij ;;
     npm) install_npm_global ;;
     obsidian) install_obsidian ;;

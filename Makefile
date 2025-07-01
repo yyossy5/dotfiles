@@ -1,8 +1,8 @@
-.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude intellij npm obsidian
+.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude gemini intellij npm obsidian
 
 TIMESTAMP := $(shell date +%Y%m%d-%H%M%S)
 
-all: brew zsh nvim tmux lazygit aqua npm gitconfig iterm2 claude intellij obsidian ## Run all setup tasks
+all: brew zsh nvim tmux lazygit aqua npm gitconfig iterm2 claude gemini intellij obsidian ## Run all setup tasks
 
 brew: ## Install CLI tools via Homebrew
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh brew
@@ -30,6 +30,9 @@ nvim: zsh ## Setup Neovim config (~/.config/nvim)
 
 claude: ## Setup Claude config (~/.claude)
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh claude
+
+gemini: ## Setup Gemini CLI config (~/.gemini)
+	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh gemini
 
 intellij: ## Setup IntelliJ IDEA config (.ideavimrc)
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh intellij
