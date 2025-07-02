@@ -40,16 +40,11 @@ set clipboard+=unnamed
 " jkでEsc
 inoremap <silent> jk <ESC>
 
+" Reload .ideavimrc
+nnoremap <leader>sv :<C-u>source ~/.ideavimrc<CR>
+
 " leaderキーをSpaceにする
 let mapleader = " "
-
-
-
-" マウスホバーした時の情報を出す
-nnmap <leader>k <Action>(ShowHoverInfo)
-
-
-nmap <leader>e <Action>(HideActiveWindow)
 
 " ----- Move -----
 "
@@ -60,14 +55,24 @@ nmap ]q <Action>(GotoNextError)
 nmap gT <Action>(PreviousTab)
 nmap gt <Action>(NextTab)
 
+nmap [m :<C-u>action MethodUp<CR>
+nmap ]m :<C-u>action MethodDown<CR>
+
 nmap <leader>th <Action>(ActivateTerminalToolWindow)
+nmap <leader>e <Action>(ActivateProjectToolWindow)
 
 " ----- Search -----
-nmap <leader>ff <Action>(SearchEverywhere)
+" nmap <leader>ff <Action>(SearchEverywhere)
+nmap <leader>ff :<C-u>action GotoFile<CR>
+nmap <leader>fs <Action>(FindInPath)
+nmap <leader>/ <Action>(Find)
 
 " ----- LSP -----
 " 使用箇所の検索
 nmap gR <Action>(FindUsages)
+
+" マウスホバーした時の情報を出す
+nmap <leader>k <Action>(ShowHoverInfo)
 
 " ----- Git -----
 nmap [h <Action>(VcsShowPrevChangeMarker)
