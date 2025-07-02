@@ -43,6 +43,8 @@ inoremap <silent> jk <ESC>
 " Reload .ideavimrc
 nnoremap <leader>sv :<C-u>source ~/.ideavimrc<CR>
 
+nmap <leader>p <Action>(EditorTabPopupMenu)
+
 " leaderキーをSpaceにする
 let mapleader = " "
 
@@ -73,6 +75,8 @@ nmap <leader>fs <Action>(FindInPath)
 nmap <leader>/ <Action>(Find)
 nmap <leader>fr <Action>(RecentFiles)
 
+"nmap <leader>d <Action>(TabsAlphabeticalMode)
+
 " ----- LSP -----
 " 使用箇所の検索
 nmap gR <Action>(FindUsages)
@@ -92,6 +96,5 @@ nmap ]h <Action>(VcsShowNextChangeMarker)
 nmap <leader>ml <Action>(ShowBookmarks)
 nmap <leader>mm <Action>(ToggleBookmark)
 
-" ----- Bookmarks -----
-
+" ----- Comment -----
 nmap gc <Action>(CommentByLineComment)
