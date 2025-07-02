@@ -52,8 +52,8 @@ let mapleader = " "
 nmap [q <Action>(GotoPreviousError)
 nmap ]q <Action>(GotoNextError)
 
-nmap gT <Action>(PreviousTab)
-nmap gt <Action>(NextTab)
+nmap gN <Action>(PreviousTab)
+nmap gn <Action>(NextTab)
 
 nmap [m :<C-u>action MethodUp<CR>
 nmap ]m :<C-u>action MethodDown<CR>
@@ -71,12 +71,15 @@ nmap <leader>sx <Action>(Unsplit)
 nmap <leader>ff :<C-u>action GotoFile<CR>
 nmap <leader>fs <Action>(FindInPath)
 nmap <leader>/ <Action>(Find)
+nmap <leader>fr <Action>(RecentFiles)
 
 " ----- LSP -----
 " 使用箇所の検索
 nmap gR <Action>(FindUsages)
 
 nmap gi <Action>(GotoImplementation)
+
+nmap gT <Action>(GotoTest)
 
 " マウスホバーした時の情報を出す
 nmap <leader>k <Action>(ShowHoverInfo)
@@ -89,4 +92,6 @@ nmap ]h <Action>(VcsShowNextChangeMarker)
 nmap <leader>ml <Action>(ShowBookmarks)
 nmap <leader>mm <Action>(ToggleBookmark)
 
+" ----- Bookmarks -----
 
+nmap gc <Action>(CommentByLineComment)
