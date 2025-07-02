@@ -50,7 +50,6 @@ let mapleader = " "
 
 " ----- Move -----
 
-" バッファ内のエラー箇所にジャンプする
 nmap [q <Action>(GotoPreviousError)
 nmap ]q <Action>(GotoNextError)
 
@@ -78,14 +77,12 @@ nmap <leader>fr <Action>(RecentFiles)
 "nmap <leader>d <Action>(TabsAlphabeticalMode)
 
 " ----- LSP -----
-" 使用箇所の検索
 nmap gR <Action>(FindUsages)
 
 nmap gi <Action>(GotoImplementation)
 
 nmap gT <Action>(GotoTest)
 
-" マウスホバーした時の情報を出す
 nmap <leader>k <Action>(ShowHoverInfo)
 
 " ----- Git -----
