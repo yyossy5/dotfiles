@@ -76,6 +76,8 @@ nmap <leader>/ <Action>(Find)
 " 使用箇所の検索
 nmap gR <Action>(FindUsages)
 
+nmap gi <Action>(GotoImplementation)
+
 " マウスホバーした時の情報を出す
 nmap <leader>k <Action>(ShowHoverInfo)
 
