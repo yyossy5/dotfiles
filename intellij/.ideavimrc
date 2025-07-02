@@ -53,8 +53,8 @@ let mapleader = " "
 nmap [q <Action>(GotoPreviousError)
 nmap ]q <Action>(GotoNextError)
 
-nmap gN <Action>(PreviousTab)
-nmap gn <Action>(NextTab)
+nmap gT <Action>(PreviousTab)
+nmap gt <Action>(NextTab)
 
 nmap [m :<C-u>action MethodUp<CR>
 nmap ]m :<C-u>action MethodDown<CR>
@@ -81,7 +81,7 @@ nmap gR <Action>(FindUsages)
 
 nmap gi <Action>(GotoImplementation)
 
-nmap gT <Action>(GotoTest)
+nmap gN <Action>(GotoTest)
 
 nmap <leader>k <Action>(ShowHoverInfo)
 
