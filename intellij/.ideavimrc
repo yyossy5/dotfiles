@@ -1,7 +1,75 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
 " ------ 自分の設定 ------
 " yank(コピー)した時にクリップボードに入るようにする
 set clipboard+=unnamed
 
 " jkでEsc
 inoremap <silent> jk <ESC>
+
+" leaderキーをSpaceにする
+let mapleader = " "
+
+
+
+" マウスホバーした時の情報を出す
+nnmap <leader>k <Action>(ShowHoverInfo)
+
+
+nmap <leader>e <Action>(HideActiveWindow)
+
+" ----- Move -----
+"
+" バッファ内のエラー箇所にジャンプする
+nmap [q <Action>(GotoPreviousError)
+nmap ]q <Action>(GotoNextError)
+
+nmap gT <Action>(PreviousTab)
+nmap gt <Action>(NextTab)
+
+nmap <leader>th <Action>(ActivateTerminalToolWindow)
+
+" ----- Search -----
+nmap <leader>ff <Action>(SearchEverywhere)
+
+" ----- LSP -----
+" 使用箇所の検索
+nmap gR <Action>(FindUsages)
+
+" ----- Git -----
+nmap [h <Action>(VcsShowPrevChangeMarker)
+nmap ]h <Action>(VcsShowNextChangeMarker)
 
