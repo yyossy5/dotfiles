@@ -47,7 +47,7 @@ nnoremap <leader>sv :<C-u>source ~/.ideavimrc<CR>
 let mapleader = " "
 
 " ----- Move -----
-"
+
 " バッファ内のエラー箇所にジャンプする
 nmap [q <Action>(GotoPreviousError)
 nmap ]q <Action>(GotoNextError)
@@ -60,6 +60,11 @@ nmap ]m :<C-u>action MethodDown<CR>
 
 nmap <leader>th <Action>(ActivateTerminalToolWindow)
 nmap <leader>e <Action>(ActivateProjectToolWindow)
+
+" ----- Split -----
+nmap <leader>sv <Action>(SplitVertically)
+nmap <leader>sh <Action>(SplitHorizontally)
+nmap <leader>sx <Action>(Unsplit)
 
 " ----- Search -----
 " nmap <leader>ff <Action>(SearchEverywhere)
