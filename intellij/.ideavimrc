@@ -1,3 +1,38 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
 " ------ 自分の設定 ------
 " yank(コピー)した時にクリップボードに入るようにする
 set clipboard+=unnamed
@@ -5,3 +40,61 @@ set clipboard+=unnamed
 " jkでEsc
 inoremap <silent> jk <ESC>
 
+" Reload .ideavimrc
+nnoremap <leader>sv :<C-u>source ~/.ideavimrc<CR>
+
+nmap <leader>p <Action>(EditorTabPopupMenu)
+
+" leaderキーをSpaceにする
+let mapleader = " "
+
+" ----- Move -----
+
+" バッファ内のエラー箇所にジャンプする
+nmap [q <Action>(GotoPreviousError)
+nmap ]q <Action>(GotoNextError)
+
+nmap gN <Action>(PreviousTab)
+nmap gn <Action>(NextTab)
+
+nmap [m :<C-u>action MethodUp<CR>
+nmap ]m :<C-u>action MethodDown<CR>
+
+nmap <leader>th <Action>(ActivateTerminalToolWindow)
+nmap <leader>e <Action>(ActivateProjectToolWindow)
+
+" ----- Split -----
+nmap <leader>sv <Action>(SplitVertically)
+nmap <leader>sh <Action>(SplitHorizontally)
+nmap <leader>sx <Action>(Unsplit)
+
+" ----- Search -----
+" nmap <leader>ff <Action>(SearchEverywhere)
+nmap <leader>ff :<C-u>action GotoFile<CR>
+nmap <leader>fs <Action>(FindInPath)
+nmap <leader>/ <Action>(Find)
+nmap <leader>fr <Action>(RecentFiles)
+
+"nmap <leader>d <Action>(TabsAlphabeticalMode)
+
+" ----- LSP -----
+" 使用箇所の検索
+nmap gR <Action>(FindUsages)
+
+nmap gi <Action>(GotoImplementation)
+
+nmap gT <Action>(GotoTest)
+
+" マウスホバーした時の情報を出す
+nmap <leader>k <Action>(ShowHoverInfo)
+
+" ----- Git -----
+nmap [h <Action>(VcsShowPrevChangeMarker)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+
+" ----- Bookmarks -----
+nmap <leader>ml <Action>(ShowBookmarks)
+nmap <leader>mm <Action>(ToggleBookmark)
+
+" ----- Comment -----
+nmap gc <Action>(CommentByLineComment)
