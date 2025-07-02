@@ -85,3 +85,8 @@ nmap <leader>k <Action>(ShowHoverInfo)
 nmap [h <Action>(VcsShowPrevChangeMarker)
 nmap ]h <Action>(VcsShowNextChangeMarker)
 
+" ----- Bookmarks -----
+nmap <leader>ml <Action>(ShowBookmarks)
+nmap <leader>mm <Action>(ToggleBookmark)
+
+
