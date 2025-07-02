@@ -85,6 +85,10 @@ nmap gN <Action>(GotoTest)
 
 nmap <leader>k <Action>(ShowHoverInfo)
 
+" ----- Debug -----
+nmap <leader>do <Action>(StepOver)
+nmap <leader>di <Action>(StepInto)
+
 " ----- Git -----
 nmap [h <Action>(VcsShowPrevChangeMarker)
 nmap ]h <Action>(VcsShowNextChangeMarker)
