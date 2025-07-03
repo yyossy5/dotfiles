@@ -100,6 +100,7 @@ lua
 neovim
 node
 openjdk@21
+ripgrep
 tmux
 tree
 EOF
