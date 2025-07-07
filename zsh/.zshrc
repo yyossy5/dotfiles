@@ -127,7 +127,7 @@ autoload -U colors ; colors ; zstyle ':completion:*' list-colors "${LS_COLORS}"
 setopt no_beep
 setopt auto_pushd
 setopt pushd_ignore_dups
-setopt auto_cd
+#setopt auto_cd
 setopt hist_ignore_dups
 setopt share_history
 setopt inc_append_history
