@@ -135,13 +135,14 @@ install_iterm2() {
 install_claude() {
   log "Setting up Claude config..."
   mkdir -p "$HOME/.claude"
-  backup_and_link "$HOME/.claude" "$DOTFILES_DIR/claude"
+  backup_and_link "$HOME/.claude/CLAUDE.md" "$DOTFILES_DIR/claude/CLAUDE.md"
 }
 
 install_gemini() {
   log "Setting up Gemini CLI config..."
   mkdir -p "$HOME/.gemini"
   backup_and_link "$HOME/.gemini/settings.json" "$DOTFILES_DIR/gemini/settings.json"
+  backup_and_link "$HOME/.gemini/GEMINI.md" "$DOTFILES_DIR/gemini/GEMINI.md"
 }
 
 install_intellij() {
