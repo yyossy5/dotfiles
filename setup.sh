@@ -174,9 +174,17 @@ install_obsidian() {
   backup_and_link "$obsidian_dir/.obsidian.vimrc" "$DOTFILES_DIR/obsidian/.obsidian.vimrc"
 }
 
+install_amazonq() {
+  log "Setting up Amazon Q config..."
+  mkdir -p "$HOME/.aws/amazonq"
+  backup_and_link "$HOME/.aws/amazonq/mcp.json" "$DOTFILES_DIR/aws/amazonq/mcp.json"
+  mkdir -p "$HOME/.amazonq"
+  backup_and_link "$HOME/.amazonq/rules" "$DOTFILES_DIR/amazonq/rules"
+}
+
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|intellij|npm|obsidian]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|intellij|npm|obsidian|amazonq]"
     exit 1
   fi
 
@@ -197,6 +205,7 @@ main() {
       install_gemini
       install_intellij
       install_obsidian
+      install_amazonq
       ;;
     zsh) install_zsh ;;
     nvim) install_nvim ;;
@@ -214,6 +223,7 @@ main() {
     intellij) install_intellij ;;
     npm) install_npm_global ;;
     obsidian) install_obsidian ;;
+    amazonq) install_amazonq ;;
     *)
       echo "Unknown option: $arg"
       exit 1
