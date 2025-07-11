@@ -88,7 +88,6 @@ install_brew() {
       log "$pkg already installed, skipping"
     fi
   done <<EOF
-aqua
 cmake
 curl
 font-hack-nerd-font
@@ -117,11 +116,6 @@ install_openjdk_symlink() {
   else
     log "Symlink already exists: $jdk_path"
   fi
-}
-
-install_aqua() {
-  log "Installing tools via aqua (global config)..."
-  aqua i -a
 }
 
 install_iterm2() {
@@ -191,7 +185,7 @@ install_amazonq() {
 
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|codex|intellij|npm|obsidian|amazonq]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|gitconfig|iterm2|claude|gemini|codex|intellij|npm|obsidian|amazonq]"
     exit 1
   fi
 
@@ -202,7 +196,6 @@ main() {
       install_openjdk_symlink
       install_zsh
       install_tmux
-      install_aqua
       install_npm_global
       install_gitconfig
       install_lazygit
@@ -223,7 +216,6 @@ main() {
       install_brew
       install_openjdk_symlink
       ;;
-    aqua) install_aqua ;;
     gitconfig) install_gitconfig ;;
     iterm2) install_iterm2 ;;
     claude) install_claude ;;
