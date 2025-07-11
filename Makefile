@@ -1,8 +1,9 @@
-.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude gemini intellij npm obsidian amazonq
+.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude gemini codex intellij npm obsidian amazonq
 
 TIMESTAMP := $(shell date +%Y%m%d-%H%M%S)
 
-all: brew zsh nvim tmux lazygit aqua npm gitconfig iterm2 claude gemini intellij obsidian amazonq ## Run all setup tasks
+## Run all setup tasks
+all: brew zsh nvim tmux lazygit aqua npm gitconfig iterm2 claude gemini codex intellij obsidian amazonq
 
 brew: ## Install CLI tools via Homebrew
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh brew
@@ -34,6 +35,9 @@ claude: ## Setup Claude config (~/.claude)
 gemini: ## Setup Gemini CLI config (~/.gemini)
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh gemini
 
+codex: ## Setup Codex CLI config (~/.codex)
+	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh codex
+
 intellij: ## Setup IntelliJ IDEA config (.ideavimrc)
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh intellij
 
@@ -48,6 +52,5 @@ amazonq: ## Setup Amazon Q config
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-18s\033[0m %s\n", $1, $2}'
-
 
 
