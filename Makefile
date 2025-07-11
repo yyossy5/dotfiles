@@ -1,9 +1,9 @@
-.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude gemini codex intellij npm obsidian amazonq
+.PHONY: all help brew zsh tmux gitconfig lazygit iterm2 nvim claude gemini codex intellij npm obsidian amazonq
 
 TIMESTAMP := $(shell date +%Y%m%d-%H%M%S)
 
 ## Run all setup tasks
-all: brew zsh nvim tmux lazygit aqua npm gitconfig iterm2 claude gemini codex intellij obsidian amazonq
+all: brew zsh nvim tmux lazygit npm gitconfig iterm2 claude gemini codex intellij obsidian amazonq
 
 brew: ## Install CLI tools via Homebrew
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh brew
@@ -13,9 +13,6 @@ zsh: ## Install .zshrc
 
 tmux: ## Install .tmux.conf
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh tmux
-
-aqua: zsh ## Install CLI tools via aqua (requires .zshrc)
-	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh aqua
 
 gitconfig: ## Configure git
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh gitconfig
