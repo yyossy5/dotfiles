@@ -145,6 +145,13 @@ install_gemini() {
   backup_and_link "$HOME/.gemini/GEMINI.md" "$DOTFILES_DIR/gemini/GEMINI.md"
 }
 
+install_codex() {
+  log "Setting up Codex CLI config..."
+  mkdir -p "$HOME/.codex"
+  backup_and_link "$HOME/.codex/AGENT.md" "$DOTFILES_DIR/codex/AGENT.md"
+  backup_and_link "$HOME/.codex/config.toml" "$DOTFILES_DIR/codex/config.toml"
+}
+
 install_intellij() {
   log "Setting up IntelliJ IDEA config..."
   backup_and_link "$HOME/.ideavimrc" "$DOTFILES_DIR/intellij/.ideavimrc"
@@ -184,7 +191,7 @@ install_amazonq() {
 
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|intellij|npm|obsidian|amazonq]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|codex|intellij|npm|obsidian|amazonq]"
     exit 1
   fi
 
@@ -203,6 +210,7 @@ main() {
       install_nvim
       install_claude
       install_gemini
+      install_codex
       install_intellij
       install_obsidian
       install_amazonq
@@ -220,6 +228,7 @@ main() {
     iterm2) install_iterm2 ;;
     claude) install_claude ;;
     gemini) install_gemini ;;
+    codex) install_codex ;;
     intellij) install_intellij ;;
     npm) install_npm_global ;;
     obsidian) install_obsidian ;;
