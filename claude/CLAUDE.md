@@ -106,3 +106,11 @@ git commit -m "refactor(core): extract validation logic"
 
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
+
+## PRレビュー方法
+
+PRレビュー指示を出された場合に、GitHubやBitbucketのPR内容を参照出来ない場合は、
+ローカルにレビュー対象ブランチをcheckoutし、
+mainやdevelopなど指定されたブランチとの差分をローカルでレビューするようにする。
+また、特別な指示が無ければコミット済みの内容のみレビュー対象とすれば良い
+（ローカルにあるコミットしていない差分やUntrackingな差分はレビュー不要）。
