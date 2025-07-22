@@ -65,6 +65,10 @@
 mvn test -pl sut-mvn-module -Dtest=XXXTest#yyyTestMethod
 ```
 
+## Markdown
+
+- 見づらくなるため横に長過ぎる1文はNG。厳守でなくても良いが、大体1行英数字で88文字あたりとする。
+
 ## 🚫 セキュリティと品質標準
 
 ### 禁止ルール（交渉不可）

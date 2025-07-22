@@ -32,6 +32,10 @@
 mvn test -pl sut-mvn-module -Dtest=XXXTest#yyyTestMethod
 ```
 
+## Markdown
+
+- 見づらくなるため横に長過ぎる1文はNG。厳守でなくても良いが、大体1行英数字で88文字あたりとする。
+
 ## PRレビュー方法
 
 PRレビュー指示を出された場合に、GitHubやBitbucketのPR内容を参照出来ない場合は、
