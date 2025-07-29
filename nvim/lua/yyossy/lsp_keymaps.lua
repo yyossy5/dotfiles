@@ -27,7 +27,7 @@ function M.setup_lsp_keymaps(bufnr)
   vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
   opts.desc = "Smart rename"
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+  vim.keymap.set("n", "<leader>sr", vim.lsp.buf.rename, opts)
 
   opts.desc = "Show line diagnostics"
   vim.keymap.set("n", "<leader>b", vim.diagnostic.open_float, opts)
