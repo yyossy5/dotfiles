@@ -83,7 +83,9 @@ nmap gi <Action>(GotoImplementation)
 
 nmap gN <Action>(GotoTest)
 
-nmap <leader>k <Action>(ShowHoverInfo)
+nmap <leader>K <Action>(ShowHoverInfo)
+
+nmap <leader>sr <Action>(RenameElement)
 
 " ----- Debug -----
 nmap <leader>do <Action>(StepOver)
