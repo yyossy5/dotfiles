@@ -21,6 +21,8 @@ function M.setup_lsp_keymaps(bufnr)
   opts.desc = "Show LSP type definitions"
   vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
+  -- TODO: テストに移動 gN割り当てる
+
   opts.desc = "See available code actions"
   vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
