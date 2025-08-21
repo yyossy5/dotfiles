@@ -101,6 +101,7 @@ neovim
 node
 openjdk@21
 ripgrep
+sshs
 tmux
 tree
 EOF
