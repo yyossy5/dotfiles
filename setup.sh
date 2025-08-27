@@ -205,9 +205,15 @@ install_amazonq() {
   backup_and_link "$HOME/.amazonq/rules" "$DOTFILES_DIR/amazonq/rules"
 }
 
+install_rovodev() {
+  log "Setting up Rovodev CLI config..."
+  mkdir -p "$HOME/.rovodev"
+  backup_and_link "$HOME/.rovodev/.agent.md" "$DOTFILES_DIR/rovodev/agent.md"
+}
+
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|codex|intellij|npm|obsidian|amazonq]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|codex|intellij|npm|obsidian|amazonq|rovodev]"
     exit 1
   fi
 
@@ -230,6 +236,7 @@ main() {
       install_intellij
       install_obsidian
       install_amazonq
+      install_rovodev
       ;;
     zsh) install_zsh ;;
     nvim) install_nvim ;;
@@ -249,6 +256,7 @@ main() {
     npm) install_npm_global ;;
     obsidian) install_obsidian ;;
     amazonq) install_amazonq ;;
+    rovodev) install_rovodev ;;
     *)
       echo "Unknown option: $arg"
       exit 1
