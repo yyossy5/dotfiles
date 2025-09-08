@@ -261,12 +261,14 @@ alias ggpush='git push origin "$(git_current_branch)"'
 alias ggpushf='git push --force-with-lease origin "$(git_current_branch)"'
 
 # alias grbd='git rebase $(git_develop_branch)'
-alias grbi='git rebase --interactive'
+# alias grbi='git rebase --interactive'
 
-alias grhs='git reset --soft'
+# alias grhs='git reset --soft'
 
 alias gsh='git show'
 
+
+alias gsta='git stash'
 alias gstp='git stash pop'
 
 alias gst='git status'
