@@ -1,6 +1,7 @@
 # dotfiles
 
-A collection of my personal dotfiles and configuration settings for development tools, designed for easy setup and consistent experience across different systems.
+A collection of my personal dotfiles and configuration settings for development tools,
+designed for easy setup and consistent experience across different machines.
 
 ## NeoVim/iTerm2 Screenshot
 
