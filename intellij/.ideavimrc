@@ -41,7 +41,7 @@ set clipboard+=unnamed
 inoremap <silent> jk <ESC>
 
 " Reload .ideavimrc
-nnoremap <leader>sv :<C-u>source ~/.ideavimrc<CR>
+nnoremap <leader>rv :<C-u>source ~/.ideavimrc<CR>
 
 nmap <leader>p <Action>(EditorTabPopupMenu)
 
@@ -61,6 +61,9 @@ nmap ]m :<C-u>action MethodDown<CR>
 
 nmap <leader>th <Action>(ActivateTerminalToolWindow)
 nmap <leader>e <Action>(ActivateProjectToolWindow)
+
+" ----- Marks -----
+nnoremap <leader>m :marks<CR>
 
 " ----- Split -----
 nmap <leader>sv <Action>(SplitVertically)
