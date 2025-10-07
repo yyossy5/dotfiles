@@ -211,9 +211,14 @@ install_rovodev() {
   backup_and_link "$HOME/.rovodev/.agent.md" "$DOTFILES_DIR/rovodev/agent.md"
 }
 
+install_vrapper() {
+  log "Setting up Vrapper config..."
+  backup_and_link "$HOME/.vrapperrc" "$DOTFILES_DIR/vrapper/.vrapperrc"
+}
+
 main() {
   if [ $# -eq 0 ]; then
-    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|codex|intellij|npm|obsidian|amazonq|rovodev]"
+    echo "Usage: $0 [all|zsh|nvim|tmux|lazygit|brew|aqua|gitconfig|iterm2|claude|gemini|codex|intellij|npm|obsidian|amazonq|rovodev|vrapper]"
     exit 1
   fi
 
@@ -237,6 +242,7 @@ main() {
       install_obsidian
       install_amazonq
       install_rovodev
+      install_vrapper
       ;;
     zsh) install_zsh ;;
     nvim) install_nvim ;;
@@ -257,6 +263,7 @@ main() {
     obsidian) install_obsidian ;;
     amazonq) install_amazonq ;;
     rovodev) install_rovodev ;;
+    vrapper) install_vrapper ;;
     *)
       echo "Unknown option: $arg"
       exit 1
