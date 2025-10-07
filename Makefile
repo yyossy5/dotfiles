@@ -1,9 +1,9 @@
-.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude gemini codex intellij npm obsidian amazonq rovodev
+.PHONY: all help brew zsh tmux aqua gitconfig lazygit iterm2 nvim claude gemini codex intellij npm obsidian amazonq rovodev vrapper
 
 TIMESTAMP := $(shell date +%Y%m%d-%H%M%S)
 
 ## Run all setup tasks
-all: brew zsh nvim tmux lazygit aqua npm gitconfig iterm2 claude gemini codex intellij obsidian amazonq rovodev
+all: brew zsh nvim tmux lazygit aqua npm gitconfig iterm2 claude gemini codex intellij obsidian amazonq rovodev vrapper
 
 brew: ## Install CLI tools via Homebrew
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh brew
@@ -52,6 +52,9 @@ amazonq: ## Setup Amazon Q config
 
 rovodev: ## Setup Rovodev CLI config (~/.rovodev/.agent.md)
 	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh rovodev
+
+vrapper: ## Setup Vrapper config (~/.vrapperrc)
+	LOG_TIMESTAMP=$(TIMESTAMP) ./setup.sh vrapper
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-18s\033[0m %s\n", $1, $2}'
